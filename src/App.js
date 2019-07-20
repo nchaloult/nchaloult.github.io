@@ -1,11 +1,13 @@
 import React from 'react';
 
+import Shell from './components/Shell';
+
 function App() {
   return (
     <div id="container">
       <div className="outer-column" style={{'background': "#cccccc"}}>
         <div className="inner-column">
-          <p>the quick brown fox jumps over the lazy dog</p>
+          <Shell />
         </div>
       </div>
       <div className="outer-column" style={{'background': "#eeeeee"}}>
