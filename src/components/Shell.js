@@ -25,12 +25,18 @@ function Shell() {
     } else {
       setStatements([...statements, 'You didn\'t type: \'testing\'!']);
     }
+
+    // Clear curInput, so that prompt comes back blank
+    setCurInput('');
   };
 
   return (
     <div>
       { shellStatementsAsParagraphs }
-      <Prompt updateCurInput={ setCurInput } submitCommand={ processCommand } />
+      <Prompt
+        value={ curInput }
+        updateCurInput={ setCurInput } submitCommand={ processCommand }
+      />
     </div>
   );
 }

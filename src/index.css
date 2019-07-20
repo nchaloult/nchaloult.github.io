@@ -1,3 +1,5 @@
+/* General styles */
+
 body {
   margin: 0;
   padding: 0;
@@ -11,6 +13,8 @@ body {
 p {
   margin: 0;
 }
+
+/* Page layout styles */
 
 #container {
   display: flex;
@@ -27,4 +31,24 @@ p {
 
 .inner-column {
   padding: 2em;
+}
+
+/* Prompt styles */
+
+#prompt {
+  display: flex;
+}
+
+#shell-input {
+  flex: 1;
+  margin-left: 0.5em;
+}
+
+input[type="text"] {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1em;
 }
