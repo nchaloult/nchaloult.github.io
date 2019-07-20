@@ -9,6 +9,13 @@ function Shell() {
   let [curInput, setCurInput] = useState('');
 
   const shellStatementsAsParagraphs = statements.map((statement) => {
+    // Make URL responses hyperlinks
+    if (statement.substring(0, 4) === 'http') {
+      return (
+        <a href={ statement }>{ statement }</a>
+      );
+    }
+
     return (
       <p key={ statement.toString() }>{ statement }</p>
     );
