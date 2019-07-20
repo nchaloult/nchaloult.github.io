@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import Prompt from './Prompt';
 
-const welcomeMessage = ['nchaloult.sh - alpha v1.0', 'Type \'help\' for available commands'];
+import constants from '../utils/constantsAndCommands';
 
 function Shell() {
-  let [statements, setStatements] = useState(welcomeMessage);
+  let [statements, setStatements] = useState(constants.welcomeMessage);
   let [curInput, setCurInput] = useState('');
 
   const shellStatementsAsParagraphs = statements.map((statement) => {
