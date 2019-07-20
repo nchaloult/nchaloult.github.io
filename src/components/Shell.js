@@ -19,9 +19,18 @@ function Shell() {
     // Sanitize input
     const command = curInput.toLowerCase().trim();
 
+    /*
+     * Declare the following line to be added to statements. This line mirrors
+     * what the user typed, which simulates the behavior of a real shell.
+     */
+    const mirror = `$ ${command}`;
+
     // Parse command & add appropriate shell statement
     if (command === 'testing') {
-      setStatements([...statements, 'You typed: \'testing\'!']);
+      setStatements([...statements, mirror, 'You typed: \'testing\'!']);
+    } else if (command === '') {
+      // Blank line entered. Just mirror
+      setStatements([...statements, mirror]);
     } else {
       // Get the first word that was typed, which will be the "program" invoked without its arguments
       const program = command.indexOf(' ') !== -1 ? command.substring(0, command.indexOf(' ')) : command;
