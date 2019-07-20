@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Prompt from './Prompt';
 
-import constants from '../utils/constantsAndCommands';
+import { constants, programs } from '../utils/constantsAndCommands';
 
 function Shell() {
   let [statements, setStatements] = useState(constants.welcomeMessage);
@@ -10,7 +10,7 @@ function Shell() {
 
   const shellStatementsAsParagraphs = statements.map((statement) => {
     return (
-      <p>{ statement }</p>
+      <p key={ statement.toString() }>{ statement }</p>
     );
   });
 
@@ -39,22 +39,51 @@ function Shell() {
    * array should be, depending on user input.
    */
   const getStatementsArrayForCommand = (command, mirror) => {
-    // Get the first word that was typed, which will be the "program" invoked without its arguments
-    const program = command.indexOf(' ') !== -1 ? command.substring(0, command.indexOf(' ')) : command;
+    const template = [...statements, mirror];
+    let output = template;
 
-    if (program === 'help') {
-      return [...statements, mirror, 'Help message', 'Include quick one-liner about yourself, and quick descriptions/explanations of all available commands.'];
-    } else if (program === 'clear') {
+    // Handle commands with "special cases" or "unusal behavior"
+    if (command === 'clear') {
       return [];
-    } else if (command === 'testing') {
-      return [...statements, mirror, 'You typed: \'testing\'!'];
     } else if (command === '') {
       // Blank line entered. Just add the mirror
-      return [...statements, mirror];
+      return output;
     }
 
-    // User input was not recognized. Add a "command not found" message
-    return [...statements, mirror, `Command not found: ${program}. This isn't bash!`];
+    const args = command.split(' ');
+    const program = args.shift();
+
+    if (programs.hasOwnProperty(program)) {
+      // The invoked program was recognized
+
+      const response = programs[program];
+
+      if (args.length === 0 && !isPlainObject(response)) {
+        // No args provided, program doesn't accept args
+        return output.concat(response);
+      } else if (args.length > 0 && isPlainObject(response)) {
+        // Args provided, program accepts args
+        for (const arg of args) {
+          if (response.hasOwnProperty(arg)) {
+            output = output.concat(response[arg]);
+          } else {
+            // Arg not recognized. Respond with warning
+            return template.concat(arg + constants.argNotRecognizedWarning + program);
+          }
+        }
+
+        return output;
+      } else if (args.length === 0 && isPlainObject(response)) {
+        // No args provided, program accepts args
+        return output.concat(response['']);
+      } else {
+        // Args provided, program doesn't accept args. Respond with warning
+        return output.concat(program + constants.acceptsNoArgsWarning);
+      }
+    }
+
+    // Invoked program was not recognized. Respond with "command not found" message
+    return output.concat(constants.commandNotFound + program);
   };
 
   // Helper function to distinguish arrays from plain old javascript objects
