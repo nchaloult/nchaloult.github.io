@@ -28,6 +28,7 @@ p {
 
 .outer-column {
   height: 100vh;
+  overflow: scroll;
 }
 
 .inner-column {
