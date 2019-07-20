@@ -26,7 +26,9 @@ function Shell() {
     const mirror = `$ ${command}`;
 
     // Parse command & add appropriate shell statement
-    if (command === 'testing') {
+    if (command === 'clear') {
+      setStatements([]);
+    } else if (command === 'testing') {
       setStatements([...statements, mirror, 'You typed: \'testing\'!']);
     } else if (command === '') {
       // Blank line entered. Just mirror
