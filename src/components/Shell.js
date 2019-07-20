@@ -50,7 +50,13 @@ function Shell() {
     let output = template;
 
     // Handle commands with "special cases" or "unusal behavior"
-    if (command === 'clear') {
+    if (command.indexOf(' ') !== -1 && command.includes('-help')) {
+      /*
+       * If any command contains a variaion of the "help" argument
+       * (-help, --help), then respond with the main help response.
+       */
+      return output.concat(programs['help']);
+    } else if (command === 'clear') {
       return [];
     } else if (command === '') {
       // Blank line entered. Just add the mirror
