@@ -23,7 +23,10 @@ function Shell() {
     if (command === 'testing') {
       setStatements([...statements, 'You typed: \'testing\'!']);
     } else {
-      setStatements([...statements, 'You didn\'t type: \'testing\'!']);
+      // Get the first word that was typed, which will be the "program" invoked without its arguments
+      const program = command.indexOf(' ') !== -1 ? command.substring(0, command.indexOf(' ')) : command;
+
+      setStatements([...statements, mirror, `Command not found: ${program}. This isn't bash!`]);
     }
 
     // Clear curInput, so that prompt comes back blank
