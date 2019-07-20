@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 import Prompt from './Prompt';
 
+const welcomeMessage = ['nchaloult.sh - alpha v1.0', 'Type \'help\' for available commands'];
+
 function Shell() {
-  let [statements, setStatements] = useState(['I\'m a shell statement']);
+  let [statements, setStatements] = useState(welcomeMessage);
   let [curInput, setCurInput] = useState('');
 
   const shellStatementsAsParagraphs = statements.map((statement) => {
@@ -40,7 +42,9 @@ function Shell() {
     // Get the first word that was typed, which will be the "program" invoked without its arguments
     const program = command.indexOf(' ') !== -1 ? command.substring(0, command.indexOf(' ')) : command;
 
-    if (program === 'clear') {
+    if (program === 'help') {
+      return [...statements, mirror, 'Help message', 'Include quick one-liner about yourself, and quick descriptions/explanations of all available commands.'];
+    } else if (program === 'clear') {
       return [];
     } else if (command === 'testing') {
       return [...statements, mirror, 'You typed: \'testing\'!'];
