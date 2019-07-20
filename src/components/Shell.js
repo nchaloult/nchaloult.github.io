@@ -57,6 +57,11 @@ function Shell() {
     return [...statements, mirror, `Command not found: ${program}. This isn't bash!`];
   };
 
+  // Helper function to distinguish arrays from plain old javascript objects
+  const isPlainObject = (input) => {
+    return Object.prototype.toString.call(input) === '[object Object]';
+  };
+
   return (
     <div>
       { shellStatementsAsParagraphs }
