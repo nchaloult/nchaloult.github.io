@@ -32,6 +32,21 @@ const programs = {
     'one': 'one',
     'two': 'two'
   },
+  'nick': {
+    '': 'Provide some arguments, like: -v',
+    '-e': 'nchaloult3@gatech.edu',
+    '--email': 'nchaloult3@gatech.edu',
+    '-g': 'https://www.github.com/nchaloult',
+    '--github': 'https://www.github.com/nchaloult',
+    '-l': 'linkedin url goes here',
+    '--linkedin': 'linkedin url goes here',
+    '-n': 'Nicholas Paul Chaloult',
+    '--name': 'Nicholas Paul Chaloult',
+    '-v': 'v20-SNAPSHOT (20 years old)',
+    '--version': 'v20-SNAPSHOT (20 years old)'
+  },
+  'pwd': 'nchaloult.sh/~',
+  'whoami': 'Nick Chaloult: a Computer Science student at Georgia Tech who is eager to learn, and strives to do work that makes them proud.',
   /*
    * If this is hit, then arguments were provided with the "clear" program.
    *
