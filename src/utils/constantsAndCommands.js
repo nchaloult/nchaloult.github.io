@@ -2,10 +2,12 @@
  * A singular home for strings and arrays that are repeated throughout the site.
  *
  * Contains things like:
+ *   - Shell prompt text
  *   - Initial state of the contents of the shell (welcome message)
  *   - Pieces of warning messages
  */
 const constants = {
+  'prompt': 'guest@nchaloult.sh:~$',
   'welcomeMessage': ['nchaloult.sh - alpha v1.0', 'Type \'help\' for available commands'],
   'acceptsNoArgsWarning': ' doesn\'t accept any arguments.',
   'argNotRecognizedWarning': ' isn\'t recognized or supported by: ',

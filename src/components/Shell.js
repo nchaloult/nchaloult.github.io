@@ -25,7 +25,7 @@ function Shell() {
      * Declare the following line to be added to statements. This line mirrors
      * what the user typed, which simulates the behavior of a real shell.
      */
-    const mirror = `$ ${command}`;
+    const mirror = constants.prompt + ' ' + command;
 
     // Parse command & add appropriate shell statement
     setStatements(getStatementsArrayForCommand(command, mirror));

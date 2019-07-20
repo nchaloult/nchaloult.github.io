@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { constants } from '../utils/constantsAndCommands';
+
 function Prompt(props) {
   return (
     <div id="prompt">
       <div>
-        <p>$</p>
+        <p>{ constants.prompt }</p>
       </div>
       <div id="shell-input">
         <form onSubmit={ props.submitCommand }>
