@@ -12,7 +12,7 @@ function App() {
       </div>
       <div className="outer-column">
         <div className="inner-column">
-          <p>Testing right</p>
+          <p>Placeholder text. A bio, summary, your résumé, or something else could go here.</p>
         </div>
       </div>
     </div>
