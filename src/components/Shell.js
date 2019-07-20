@@ -26,22 +26,31 @@ function Shell() {
     const mirror = `$ ${command}`;
 
     // Parse command & add appropriate shell statement
-    if (command === 'clear') {
-      setStatements([]);
-    } else if (command === 'testing') {
-      setStatements([...statements, mirror, 'You typed: \'testing\'!']);
-    } else if (command === '') {
-      // Blank line entered. Just mirror
-      setStatements([...statements, mirror]);
-    } else {
-      // Get the first word that was typed, which will be the "program" invoked without its arguments
-      const program = command.indexOf(' ') !== -1 ? command.substring(0, command.indexOf(' ')) : command;
-
-      setStatements([...statements, mirror, `Command not found: ${program}. This isn't bash!`]);
-    }
+    setStatements(getStatementsArrayForCommand(command, mirror));
 
     // Clear curInput, so that prompt comes back blank
     setCurInput('');
+  };
+
+  /*
+   * Helper function for processCommand(). Returns what the new statements
+   * array should be, depending on user input.
+   */
+  const getStatementsArrayForCommand = (command, mirror) => {
+    // Get the first word that was typed, which will be the "program" invoked without its arguments
+    const program = command.indexOf(' ') !== -1 ? command.substring(0, command.indexOf(' ')) : command;
+
+    if (program === 'clear') {
+      return [];
+    } else if (command === 'testing') {
+      return [...statements, mirror, 'You typed: \'testing\'!'];
+    } else if (command === '') {
+      // Blank line entered. Just add the mirror
+      return [...statements, mirror];
+    }
+
+    // User input was not recognized. Add a "command not found" message
+    return [...statements, mirror, `Command not found: ${program}. This isn't bash!`];
   };
 
   return (
