@@ -41,7 +41,7 @@ p {
   display: flex;
 }
 
-#shell-input {
+#prompt-input-form {
   flex: 1;
   margin-left: 0.5em;
 }
@@ -53,4 +53,9 @@ input[type="text"] {
   outline: none;
   width: 100%;
   font-size: 1em;
+}
+
+/* Don't display "I-beam" cursor when hovering over prompt input text field */
+input[type="text"]:hover {
+  cursor: default;
 }
