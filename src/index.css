@@ -2,6 +2,8 @@
 
 * {
   font-family: 'Overpass Mono', source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  background: #fdf6e3;
+  color: #657b83;
 }
 
 body {
@@ -13,6 +15,10 @@ body {
 
 p {
   margin: 0;
+}
+
+b {
+  color: #586e75;
 }
 
 /* Page layout styles */
