@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
+import ManPage from './components/ManPage';
 import Shell from './components/Shell';
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
       </div>
       <div className="outer-column">
         <div className="inner-column">
-          <p>Placeholder text. A bio, summary, your résumé, or something else could go here.</p>
+          <ManPage />
         </div>
       </div>
     </div>

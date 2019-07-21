@@ -9,6 +9,7 @@
 const constants = {
   'prompt': 'guest@nchaloult.sh:~$',
   'welcomeMessage': ['nchaloult.sh - alpha v1.0', 'Type \'help\' for available commands'],
+  'shortDesc': 'a Computer Science at Georgia Tech who is eager to learn, and strives to do work that makes themself proud',
   'acceptsNoArgsWarning': ' doesn\'t accept any arguments.',
   'argNotRecognizedWarning': ' isn\'t recognized or supported by: ',
   'commandNotFound': 'Command not found: '
@@ -48,7 +49,7 @@ const programs = {
     '--version': 'v20-SNAPSHOT (20 years old)'
   },
   'pwd': 'nchaloult.sh/~',
-  'whoami': 'Nick Chaloult: a Computer Science student at Georgia Tech who is eager to learn, and strives to do work that makes them proud.',
+  'whoami': 'Nick Chaloult: ' + constants.shortDesc,
   /*
    * If this is hit, then arguments were provided with the "clear" program.
    *

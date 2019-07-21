@@ -59,3 +59,22 @@ input[type="text"] {
 input[type="text"]:hover {
   cursor: default;
 }
+
+/* "Man page" styles */
+
+.l-align {
+  float: left;
+}
+
+.r-align {
+  float: right;
+}
+
+.c-align {
+  width: 100%;
+  text-align: center;
+}
+
+.tabbed {
+  padding-left: 3em;
+}
