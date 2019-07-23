@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Prompt from './Prompt';
 
@@ -7,6 +7,54 @@ import { constants, programs } from '../utils/constantsAndCommands';
 function Shell() {
   let [statements, setStatements] = useState(constants.welcomeMessage);
   let [curInput, setCurInput] = useState('');
+  let [prevCommands, setPrevCommands] = useState(['']);
+  let [prevCommandsIndex, setPrevCommandsIndex] = useState(0);
+
+  useEffect(() => {
+    document.addEventListener('keydown', checkForArrowKeyPressed);
+
+    return () => {
+      document.removeEventListener('keydown', checkForArrowKeyPressed);
+    };
+  });
+
+  /*
+   * Called each time a key is pressed. If the pressed key is either the up or
+   * down arrow key, then move through the shell's input history.
+   *
+   * Based on current spot in the history, change the contents of the shell
+   * input text field to simulate scrolling through the history of entered
+   * commands.
+   */
+  const checkForArrowKeyPressed = (e) => {
+    const pressedKey = e.key;
+
+    if (pressedKey === 'ArrowUp') {
+      if (prevCommandsIndex >= prevCommands.length) {
+        // Set the shell input text field's contents
+        setCurInput(prevCommands[prevCommands.length - 1]);
+
+        setPrevCommandsIndex(prevCommands.length - 1);
+      } else {
+        // Set the shell input text field's contents
+        setCurInput(prevCommands[prevCommandsIndex]);
+
+        setPrevCommandsIndex(prevCommandsIndex + 1);
+      }
+    } else if (pressedKey === 'ArrowDown') {
+      if (prevCommandsIndex <= 0) {
+        // Set the shell input text field's contents
+        setCurInput(prevCommands[0]);
+
+        setPrevCommandsIndex(0);
+      } else {
+        // Set the shell input text field's contents
+        setCurInput(prevCommands[prevCommandsIndex]);
+
+        setPrevCommandsIndex(prevCommandsIndex - 1);
+      }
+    }
+  };
 
   const shellStatementsAsParagraphs = statements.map((statement) => {
     // Make URL responses hyperlinks
@@ -27,6 +75,14 @@ function Shell() {
 
     // Sanitize input
     const command = curInput.toLowerCase().trim();
+
+    // Push input onto prevCommands stack for retrieval w/ arrow keys
+    if (command !== '' && prevCommands.length > 0 && command !== prevCommands[0]) {
+      setPrevCommands([command, ...prevCommands]);
+    }
+
+    // Reset prevCommandsIndex, since the command history has changed
+    setPrevCommandsIndex(0);
 
     /*
      * Declare the following line to be added to statements. This line mirrors
