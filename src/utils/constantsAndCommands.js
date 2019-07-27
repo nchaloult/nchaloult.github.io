@@ -67,7 +67,6 @@ const programs = {
     '-v': constants.version,
     '--version': constants.version
   },
-  'pwd': 'nchaloult.sh/~',
   'whoami': constants.fullName + ": " + constants.shortDesc
 };
 
