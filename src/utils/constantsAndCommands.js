@@ -36,12 +36,6 @@ const constants = {
  */
 const programs = {
   'help': ['Help message', 'Include quick one-liner about yourself, and quick descriptions/explanations of all available commands.'],
-  'testing': 'You typed: \'testing\'!',
-  'accepts-args': {
-    '': 'no args passed in',
-    'one': 'one',
-    'two': 'two'
-  },
   'nick': {
     '': 'Provide some arguments, like: -v',
     '-a': [constants.fullName, constants.email, constants.github, constants.resumeResponse],
