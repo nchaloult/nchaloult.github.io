@@ -27,6 +27,9 @@ function ManPage() {
       <p><b>SYNOPSIS</b></p>
       <div className="tabbed">
         <p>
+          <b>nick</b> [<b>-a</b>]
+        </p>
+        <p>
           <b>nick</b> [<b>-n</b>] [<b>-e</b>] [<b>-g</b>]
         </p>
       </div>
@@ -44,6 +47,18 @@ function ManPage() {
 
       <p><b>OPTIONS</b></p>
       <div className="tabbed">
+
+        <p>
+          <b>-a, --all</b>
+        </p>
+        <div className="tabbed">
+          <p>
+            Prints lots of Nick's important information to the shell
+          </p>
+        </div>
+
+        { blankLine }
+
         <p>
           <b>-e, --email</b>
         </p>
@@ -107,6 +122,7 @@ function ManPage() {
             Uses <b>echo</b> to print Nick's current stable version (age) to the shell
           </p>
         </div>
+
       </div>
 
       { blankLine }

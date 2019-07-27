@@ -58,16 +58,15 @@ function Shell() {
   };
 
   const shellStatementsAsParagraphs = statements.map((statement) => {
-    // Make URL responses hyperlinks
+    // Handle responses with "special cases" or "unusual behavior"
     if (statement.substring(0, 4) === 'http') {
-      return (
-        <a href={ statement }>{ statement }</a>
+      // Make URL responses hyperlinks
+      statement = (
+        <a href={ statement } target="_blank" rel="noopener noreferrer">{ statement }</a>
       );
-    }
-
-    // Handle special "resume" command by linking to file
-    if (statement === constants.resumeResponse) {
-      return (
+    } else if (statement === constants.resumeResponse) {
+      // Make a hyperlink that opens resume PDF
+      statement = (
         <a href={ pdf } target="_blank" rel="noopener noreferrer">{ statement }</a>
       );
     }
