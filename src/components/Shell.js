@@ -59,7 +59,19 @@ function Shell() {
 
   const shellStatementsAsParagraphs = statements.map((statement) => {
     // Handle responses with "special cases" or "unusual behavior"
-    if (statement.substring(0, 4) === 'http') {
+    if (statement.includes(constants.prompt)) {
+      // Separate the prompt from the user input
+      const indexOfFirstSpace = statement.indexOf(' ');
+      const prompt = statement.substring(0, indexOfFirstSpace);
+      statement = statement.substring(indexOfFirstSpace);
+
+      // Make prompt bold
+      statement = (
+        <span>
+          <b>{ prompt }</b> { statement }
+        </span>
+      );
+    } else if (statement.substring(0, 4) === 'http') {
       // Make URL responses hyperlinks
       statement = (
         <a href={ statement } target="_blank" rel="noopener noreferrer">{ statement }</a>
@@ -134,7 +146,30 @@ function Shell() {
 
       const response = programs[program];
 
-      if (args.length === 0 && !isPlainObject(response)) {
+      if (args.length === 1 && args[0].length > 2
+        && (args[0].match(/-/g) || []).length === 1) {
+        /*
+         * If multiple one-letter args are included together (e.g. nick -neg),
+         * then process them all.
+         */
+
+        // Remove '-' at the beginning of the arg, so the loop below goes through each letter
+        const multiArg = args[0].substring(1);
+
+        for (const c of multiArg) {
+          // Attach '-' onto each arg in multiArg so that it will match a key in programs
+          const curArg = '-' + c;
+
+          if (response.hasOwnProperty(curArg)) {
+            output = output.concat(response[curArg]);
+          } else {
+            // Arg not recognized. Respond with warning
+            return template.concat(curArg + constants.argNotRecognizedWarning + program);
+          }
+        }
+
+        return output;
+      } else if (args.length === 0 && !isPlainObject(response)) {
         // No args provided, program doesn't accept args
         return output.concat(response);
       } else if (args.length > 0 && isPlainObject(response)) {

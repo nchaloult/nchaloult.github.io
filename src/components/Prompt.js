@@ -5,7 +5,9 @@ import { constants } from '../utils/constantsAndCommands';
 function Prompt(props) {
   return (
     <div id="prompt">
-      <p>{ constants.prompt }</p>
+      <p>
+        <b>{ constants.prompt }</b>
+      </p>
       <form id="prompt-input-form" onSubmit={ props.submitCommand }>
         <input
           autoFocus={ true }

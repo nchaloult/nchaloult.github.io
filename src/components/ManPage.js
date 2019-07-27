@@ -30,7 +30,7 @@ function ManPage() {
           <b>nick</b> [<b>-a</b>]
         </p>
         <p>
-          <b>nick</b> [<b>-n</b>] [<b>-e</b>] [<b>-g</b>]
+          <b>nick</b> [<b>-rg</b>]
         </p>
       </div>
 
