@@ -66,7 +66,7 @@ function Shell() {
     }
 
     // Handle special "resume" command by linking to file
-    if (statement === programs['nick']['-r']) {
+    if (statement === constants.resumeResponse) {
       return (
         <a href={ pdf } target="_blank" rel="noopener noreferrer">{ statement }</a>
       );
@@ -119,7 +119,7 @@ function Shell() {
        * If any command contains a variaion of the "help" argument
        * (-help, --help), then respond with the main help response.
        */
-      return output.concat(programs['help']);
+      return output.concat(programs.help);
     } else if (command === 'clear') {
       return [];
     } else if (command === '') {
