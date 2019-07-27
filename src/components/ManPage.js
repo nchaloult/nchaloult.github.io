@@ -64,7 +64,7 @@ function ManPage() {
         </p>
         <div className="tabbed">
           <p>
-            Uses <b>echo</b> to print Nick's email to the shell
+            Prints Nick's email address to the shell
           </p>
         </div>
 
@@ -75,7 +75,7 @@ function ManPage() {
         </p>
         <div className="tabbed">
           <p>
-            Uses <b>echo</b> to print Nick's Github to the shell
+            Prints a link to Nick's Github profile to the shell
           </p>
         </div>
 
@@ -86,7 +86,7 @@ function ManPage() {
         </p>
         <div className="tabbed">
           <p>
-            Uses <b>echo</b> to print Nick's LinkedIn to the shell
+            Prints a link to Nick's LinkedIn profile to the shell
           </p>
         </div>
 
@@ -97,7 +97,7 @@ function ManPage() {
         </p>
         <div className="tabbed">
           <p>
-            Uses <b>echo</b> to print Nick's full name to the shell
+            Prints Nick's full name to the shell
           </p>
         </div>
 
@@ -108,7 +108,7 @@ function ManPage() {
         </p>
         <div className="tabbed">
           <p>
-            Provide a link to view Nick's resume in PDF format
+            Prints a link to view Nick's resume in PDF format to the shell
           </p>
         </div>
 
@@ -119,7 +119,7 @@ function ManPage() {
         </p>
         <div className="tabbed">
           <p>
-            Uses <b>echo</b> to print Nick's current stable version (age) to the shell
+            Prints Nick's current stable version (age) to the shell
           </p>
         </div>
 
@@ -128,9 +128,8 @@ function ManPage() {
       { blankLine }
       { blankLine }
 
-      <div className="l-align">Nick Chaloult</div>
+      <div className="l-align">{ constants.fullName }</div>
       <div className="r-align">NICK(7)</div>
-      <div className="c-align">July 2019</div>
     </div>
   );
 }
