@@ -11,6 +11,8 @@ function Shell() {
   let [prevCommands, setPrevCommands] = useState(['']);
   let [prevCommandsIndex, setPrevCommandsIndex] = useState(0);
 
+  const space = "\xa0";
+
   useEffect(() => {
     document.addEventListener('keydown', checkForArrowKeyPressed);
 
@@ -125,12 +127,30 @@ function Shell() {
     let output = template;
 
     // Handle commands with "special cases" or "unusal behavior"
-    if (command.indexOf(' ') !== -1 && command.includes('-help')) {
+    if ( command === 'help'
+      || (command.indexOf(' ') !== -1 && command.includes('-help')) ) {
       /*
-       * If any command contains a variaion of the "help" argument
-       * (-help, --help), then respond with the main help response.
+       * If the "help" command is entered, or if any command contains a
+       * variaion of the "help" argument (-help, --help), then respond with the
+       * main help response.
        */
-      return output.concat(programs.help);
+      output = output.concat(constants.availableCommandsMessage);
+
+      for (const program of Object.keys(programs)) {
+        output = output.concat(program);
+
+        if (isPlainObject(programs[program])) {
+          // If the current program accepts arguments
+          for (const arg of Object.keys(programs[program])) {
+            // Skip over no-arg ("''") keys
+            if (arg !== '') {
+              output = output.concat(space + space + arg);
+            }
+          }
+        }
+      }
+
+      return output;
     } else if (command === 'clear') {
       return [];
     } else if (command === '') {

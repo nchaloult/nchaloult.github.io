@@ -8,8 +8,13 @@
  */
 const constants = {
   'prompt': 'guest@nchaloult.sh:~$',
-  'welcomeMessage': ['nchaloult.sh - alpha v1.0', 'Type \'help\' for available commands'],
+  'welcomeMessage': ['nchaloult.sh - alpha v1.0', 'Type "help" for available commands'],
+  'availableCommandsMessage': [
+    'Available commands and their arguments:',
+    '======================================='
+  ],
   'shortDesc': 'a Computer Science student at Georgia Tech who is eager to learn, and strives to do work that makes themself proud',
+
   'acceptsNoArgsWarning': ' doesn\'t accept any arguments.',
   'argNotRecognizedWarning': ' isn\'t recognized or supported by: ',
   'commandNotFound': 'Command not found: ',
@@ -35,7 +40,16 @@ const constants = {
  *   value associated with the '' key will be outputted to the shell.
  */
 const programs = {
-  'help': ['Help message', 'Include quick one-liner about yourself, and quick descriptions/explanations of all available commands.'],
+  /*
+   * If either of these are hit, then arguments were provided with these programs.
+   *
+   * This must be handled here because the "clear" and "help" programs have unusual
+   * behavior, and are handled separately from other commands in Shell's
+   * getStatementsArrayForCommand helper func.
+   */
+  'clear': 'clear' + constants.acceptsNoArgsWarning,
+  'help': 'help' + constants.acceptsNoArgsWarning,
+
   'nick': {
     '': 'Provide some arguments, like: -v',
     '-a': [constants.fullName, constants.email, constants.github, constants.resumeResponse],
@@ -54,15 +68,7 @@ const programs = {
     '--version': constants.version
   },
   'pwd': 'nchaloult.sh/~',
-  'whoami': constants.fullName + ": " + constants.shortDesc,
-  /*
-   * If this is hit, then arguments were provided with the "clear" program.
-   *
-   * This must be handled here because the "clear" program has unusual
-   * behavior, and is handled separately from other commands in Shell's
-   * getStatementsArrayForCommand helper func.
-   */
-  'clear': 'clear' + constants.acceptsNoArgsWarning
+  'whoami': constants.fullName + ": " + constants.shortDesc
 };
 
 export { constants, programs };
