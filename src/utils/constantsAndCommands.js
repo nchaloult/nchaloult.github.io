@@ -45,6 +45,8 @@ const programs = {
     '--linkedin': 'linkedin url goes here',
     '-n': 'Nicholas Paul Chaloult',
     '--name': 'Nicholas Paul Chaloult',
+    '-r': 'Click to view resume',
+    '--resume': 'Click to view resume',
     '-v': 'v20-SNAPSHOT (20 years old)',
     '--version': 'v20-SNAPSHOT (20 years old)'
   },

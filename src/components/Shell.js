@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Prompt from './Prompt';
 
 import { constants, programs } from '../utils/constantsAndCommands';
+import pdf from '../resume.pdf';
 
 function Shell() {
   let [statements, setStatements] = useState(constants.welcomeMessage);
@@ -61,6 +62,13 @@ function Shell() {
     if (statement.substring(0, 4) === 'http') {
       return (
         <a href={ statement }>{ statement }</a>
+      );
+    }
+
+    // Handle special "resume" command by linking to file
+    if (statement === programs['nick']['-r']) {
+      return (
+        <a href={ pdf } target="_blank" rel="noopener noreferrer">{ statement }</a>
       );
     }
 

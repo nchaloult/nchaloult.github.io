@@ -89,6 +89,17 @@ function ManPage() {
         { blankLine }
 
         <p>
+          <b>-r, --resume</b>
+        </p>
+        <div className="tabbed">
+          <p>
+            Provide a link to view Nick's resume in PDF format
+          </p>
+        </div>
+
+        { blankLine }
+
+        <p>
           <b>-v, --version</b>
         </p>
         <div className="tabbed">
