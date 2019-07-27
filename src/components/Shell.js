@@ -6,7 +6,7 @@ import { constants, programs } from '../utils/constantsAndCommands';
 import pdf from '../resume.pdf';
 
 function Shell() {
-  let [statements, setStatements] = useState(constants.welcomeMessage);
+  let [statements, setStatements] = useState([ constants.welcomeMessage ]);
   let [curInput, setCurInput] = useState('');
   let [prevCommands, setPrevCommands] = useState(['']);
   let [prevCommandsIndex, setPrevCommandsIndex] = useState(0);

@@ -8,7 +8,7 @@
  */
 const constants = {
   'prompt': 'guest@nchaloult.sh:~$',
-  'welcomeMessage': ['nchaloult.sh - alpha v1.0', 'Type "help" for available commands'],
+  'welcomeMessage': 'Type "help" for available commands',
   'availableCommandsMessage': [
     'Available commands and their arguments:',
     '======================================='
