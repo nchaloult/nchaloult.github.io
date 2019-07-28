@@ -25,20 +25,37 @@ b {
 
 #container {
   display: flex;
-  align-items: center;
-}
-
-#container > div {
-  flex: 1;
 }
 
 .outer-column {
-  height: 100vh;
   overflow: scroll;
 }
 
 .inner-column {
   padding: 2em;
+}
+
+/* Desktops & tablets */
+@media (min-width: 800px) {
+  #container {
+    flex-direction: row;
+  }
+
+  .outer-column {
+    flex: 1;
+    height: 100vh;
+  }
+}
+
+/* Phones */
+@media (max-width: 800px) {
+  #container {
+    flex-direction: column;
+  }
+
+  .outer-column {
+    height: 50vh;
+  }
 }
 
 /* Prompt styles */
