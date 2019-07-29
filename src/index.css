@@ -28,7 +28,8 @@ b {
 }
 
 .outer-column {
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .inner-column {
