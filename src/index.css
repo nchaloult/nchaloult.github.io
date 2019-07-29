@@ -57,6 +57,10 @@ b {
   .outer-column {
     height: 50vh;
   }
+
+  .outer-column:nth-child(2) {
+    border-top: 4px solid #eee8d5;
+  }
 }
 
 /* Prompt styles */
