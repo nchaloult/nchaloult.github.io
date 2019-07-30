@@ -21,7 +21,7 @@ const constants = {
 
   'email': 'nchaloult3@gatech.edu',
   'github': 'https://www.github.com/nchaloult',
-  'linkedin': 'LinkedIn url goes here',
+  'linkedin': 'https://www.linkedin.com/in/nicholas-chaloult',
   'fullName': 'Nicholas Paul Chaloult',
   'resumeResponse': 'Click to view resume',
   'version': 'v20-SNAPSHOT (20 years old)'
