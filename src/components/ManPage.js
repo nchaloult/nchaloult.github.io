@@ -10,7 +10,7 @@ function ManPage() {
     <div>
       <div className="l-align">NICK(7)</div>
       <div className="r-align">NICK(7)</div>
-      <div className="c-align">nchaloult.sh General Commands Manual</div>
+      <div className="c-align">nchaloult.com General Commands Manual</div>
 
       { blankLine }
       { blankLine }

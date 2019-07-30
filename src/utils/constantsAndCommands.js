@@ -7,7 +7,7 @@
  *   - Pieces of warning messages
  */
 const constants = {
-  'prompt': 'guest@nchaloult.sh:~$',
+  'prompt': 'guest@nchaloult.com:~$',
   'welcomeMessage': 'Type "help" for available commands',
   'availableCommandsMessage': [
     'Available commands and their arguments:',
