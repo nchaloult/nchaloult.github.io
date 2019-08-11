@@ -83,6 +83,15 @@ function Shell() {
       statement = (
         <a href={ pdf } target="_blank" rel="noopener noreferrer">{ statement }</a>
       );
+    } else if (statement === '') {
+      /*
+      When rendering lines from constantsAndCommands, some lines may be empty
+      strings (the "help" command's content has some blank lines). <p> tags
+      with no content inside won't render at all, so we need to render blank
+      lines as <p> tags with a "space" character inside of them to simulate
+      blank lines.
+      */
+      statement = space;
     }
 
     return (
