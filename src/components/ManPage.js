@@ -8,8 +8,8 @@ function ManPage() {
 
   return (
     <div>
-      <div className="l-align">NICK(7)</div>
-      <div className="r-align">NICK(7)</div>
+      <div className="l-align">NICK(1)</div>
+      <div className="r-align">NICK(1)</div>
       <div className="c-align">nchaloult.com General Commands Manual</div>
 
       { blankLine }
@@ -27,10 +27,7 @@ function ManPage() {
       <p><b>SYNOPSIS</b></p>
       <div className="tabbed">
         <p>
-          <b>nick</b> [<b>-a</b>]
-        </p>
-        <p>
-          <b>nick</b> [<b>-rg</b>]
+          <b>nick</b> [<b>-aeglnrv</b>]
         </p>
       </div>
 
@@ -129,7 +126,7 @@ function ManPage() {
       { blankLine }
 
       <div className="l-align">{ constants.fullName }</div>
-      <div className="r-align">NICK(7)</div>
+      <div className="r-align">NICK(1)</div>
     </div>
   );
 }
