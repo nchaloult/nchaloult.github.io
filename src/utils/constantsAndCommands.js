@@ -8,9 +8,16 @@
  */
 const constants = {
   'prompt': 'guest@nchaloult.com:~$',
-  'welcomeMessage': 'Type "help" for available commands',
+  'welcomeMessage': 'Type: "help", then press Enter, for available commands',
   'availableCommandsMessage': [
-    'Available commands and their arguments:',
+    'How to Use Commands:',
+    '=======================================',
+    'Type: "nick -a", then press Enter',
+    '',
+    '"nick" is the command you\'re invoking; "-a" is an option that sends specific instructions to the "nick" command.',
+    '',
+    '',
+    'Available Commands and Their Options:',
     '======================================='
   ],
   'shortDesc': 'a Computer Science student at Georgia Tech who is eager to learn and thinks ahead',
