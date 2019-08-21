@@ -19,3 +19,7 @@ All of the "programs" that the "shell" supports are declared in [src/utils/const
 ### Special Program
 
 Some "programs," like `clear` and `help`, have special behavior. Their logic is handled in the `getStatementsArrayForCommand` function in the `Shell` component.
+
+## Color Scheme
+
+[Solarized light](https://ethanschoonover.com/solarized/) (well, almost... there's no syntax-highlighting-like behavior going on here, so no colors other than the different base shades)
