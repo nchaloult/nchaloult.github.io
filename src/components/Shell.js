@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Prompt from './Prompt';
 
 import { constants, programs } from '../utils/constantsAndCommands';
-import pdf from '../resume.pdf';
 
 function Shell() {
   let [statements, setStatements] = useState([ constants.welcomeMessage ]);
@@ -81,7 +80,7 @@ function Shell() {
     } else if (statement === constants.resumeResponse) {
       // Make a hyperlink that opens resume PDF
       statement = (
-        <a href={ pdf } target="_blank" rel="noopener noreferrer">{ statement }</a>
+        <a href={ process.env.PUBLIC_URL + '/nick_chaloult.pdf' } target="_blank" rel="noopener noreferrer">{ statement }</a>
       );
     } else if (statement === '') {
       /*
