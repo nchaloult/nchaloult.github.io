@@ -20,7 +20,7 @@ const constants = {
     'Available Commands and Their Options:',
     '======================================='
   ],
-  'shortDesc': 'a Computer Science student at Georgia Tech who is eager to learn and thinks ahead',
+  'shortDesc': 'a Computer Science student at Georgia Tech who is eager to learn about new technologies and best practices',
 
   'acceptsNoArgsWarning': ' doesn\'t accept any arguments.',
   'argNotRecognizedWarning': ' isn\'t recognized or supported by: ',
