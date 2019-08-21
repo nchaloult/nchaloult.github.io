@@ -2,6 +2,8 @@
 
 Nick Chaloult's personal page. Inspired by [shells](https://en.wikipedia.org/wiki/Unix_shell) and [man pages](https://en.wikipedia.org/wiki/Man_page). Built with React.
 
+![nchaloult.com landing page](https://user-images.githubusercontent.com/31291920/63472496-4bca2200-c440-11e9-872e-cd4253b46c0d.png)
+
 ## "Commands"/"Programs"
 
 All of the "programs" that the "shell" supports are declared in [src/utils/constantsAndCommands.js](src/utils/constantsAndCommands.js). Adding, removing, or changing the behavior of "programs", as well as the options that each "program" can accept, is done by editing the `programs` object.
