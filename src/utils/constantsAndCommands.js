@@ -31,7 +31,7 @@ const constants = {
   'linkedin': 'https://www.linkedin.com/in/nicholas-chaloult',
   'fullName': 'Nicholas Paul Chaloult',
   'resumeResponse': 'Click to view resume',
-  'version': 'v20-SNAPSHOT (20 years old)'
+  'version': 'v21-SNAPSHOT (21 years old)'
 };
 
 /*
