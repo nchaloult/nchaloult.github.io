@@ -74,7 +74,7 @@ const programs = {
     '-v': constants.version,
     '--version': constants.version
   },
-  'whoami': constants.fullName + ": " + constants.shortDesc
+  'whoami': 'guest'
 };
 
 export { constants, programs };
