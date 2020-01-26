@@ -80,7 +80,7 @@ function Shell() {
     } else if (statement === constants.resumeResponse) {
       // Make a hyperlink that opens resume PDF
       statement = (
-        <a href={ process.env.PUBLIC_URL + '/nick_chaloult.pdf' } target="_blank" rel="noopener noreferrer">{ statement }</a>
+        <a href={ process.env.PUBLIC_URL + '/' + constants.resumeFileName } target="_blank" rel="noopener noreferrer">{ statement }</a>
       );
     } else if (statement === '') {
       /*
