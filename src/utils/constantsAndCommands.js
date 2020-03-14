@@ -33,7 +33,7 @@ const constants = {
   'resumeResponse': 'Click to view resume',
   'version': 'v21-SNAPSHOT (21 years old)',
 
-  'resumeFileName': 'cv.pdf'
+  'resumeFileName': 'cv.pdf',
 };
 
 /*
@@ -52,12 +52,13 @@ const programs = {
   /*
    * If either of these are hit, then arguments were provided with these programs.
    *
-   * This must be handled here because the "clear" and "help" programs have unusual
-   * behavior, and are handled separately from other commands in Shell's
+   * This must be handled here because these programs have unusual behavior,
+   * and are handled separately from other commands in Shell's
    * getStatementsArrayForCommand helper func.
    */
   'clear': 'clear' + constants.acceptsNoArgsWarning,
   'help': 'help' + constants.acceptsNoArgsWarning,
+  'quote': 'quote' + constants.acceptsNoArgsWarning,
 
   'nick': {
     '': 'Provide some arguments, like: -v',

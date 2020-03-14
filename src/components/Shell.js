@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Prompt from './Prompt';
 
 import { constants, programs } from '../utils/constantsAndCommands';
+import { quotes } from '../utils/quotes';
 
 function Shell() {
   let [statements, setStatements] = useState([ constants.welcomeMessage ]);
@@ -161,6 +162,10 @@ function Shell() {
       return output;
     } else if (command === 'clear') {
       return [];
+    } else if (command === 'quote') {
+      // Choose a random quote
+      const quoteIndex = Math.floor(Math.random() * quotes.length);
+      return output.concat(quotes[quoteIndex]);
     } else if (command === '') {
       // Blank line entered. Just add the mirror
       return output;
