@@ -18,6 +18,10 @@ const quotes = [
     '- Baker et al.',
     'https://research.google.com/pubs/pub36971.html',
   ],
+  [
+    '"Tell me and I forget. Show me and I remember. Involve me and I understand."',
+    '- Chinese proverb',
+  ],
 ];
 
 export { quotes };
