@@ -22,6 +22,10 @@ const quotes = [
     '"Tell me and I forget. Show me and I remember. Involve me and I understand."',
     '- Chinese proverb',
   ],
+  [
+    '"Do you want me to take your unstructured monolith and break it down into an unstructured set of microservices?"',
+    '- Unknown',
+  ],
 ];
 
 export { quotes };
