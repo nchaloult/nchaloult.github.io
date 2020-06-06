@@ -30,6 +30,10 @@ const quotes = [
     '"The most violent element in society is ignorance."',
     '- Emma Goldman',
   ],
+  [
+    '"There are two hard things in Computer Science: cache invalidation and naming things."',
+    '- Phil Karlton',
+  ],
 ];
 
 export { quotes };
