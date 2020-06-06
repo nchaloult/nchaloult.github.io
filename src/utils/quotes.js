@@ -26,6 +26,10 @@ const quotes = [
     '"Do you want me to take your unstructured monolith and break it down into an unstructured set of microservices?"',
     '- Unknown',
   ],
+  [
+    '"The most violent element in society is ignorance."',
+    '- Emma Goldman',
+  ],
 ];
 
 export { quotes };
