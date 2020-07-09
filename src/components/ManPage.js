@@ -36,7 +36,7 @@ function ManPage() {
       <p><b>DESCRIPTION</b></p>
       <div className="tabbed">
         <p>
-          <b>nick</b> has a passion for learning about new technologies, and loves discovering better ways to do things. <b>nick</b>'s concentrations in school are Intelligence and Info & Internetworks. Expects to graduate in May of 2021.
+          <b>nick</b> has a passion for learning about new technologies, and loves discovering better ways to do things. <b>nick</b>'s concentrations in school are Intelligence and Info & Internetworks. Expects to graduate in December of 2021.
         </p>
       </div>
 
