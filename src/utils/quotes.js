@@ -34,6 +34,11 @@ const quotes = [
     '"There are two hard things in Computer Science: cache invalidation and naming things."',
     '- Phil Karlton',
   ],
+  [
+    '"We don\'t really celebrate the accomplishments of government employees. They exist in our society to take the blame."',
+    '- Michael Lewis',
+    '"The Fifth Risk" book',
+  ],
 ];
 
 export { quotes };
