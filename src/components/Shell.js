@@ -162,7 +162,7 @@ function Shell() {
       return output;
     } else if (command === 'clear') {
       return [];
-    } else if (command === 'quote') {
+    } else if (command === 'fortune') {
       // Choose a random quote
       const quoteIndex = Math.floor(Math.random() * quotes.length);
       return output.concat(quotes[quoteIndex]);

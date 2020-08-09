@@ -58,7 +58,7 @@ const programs = {
    */
   'clear': 'clear' + constants.acceptsNoArgsWarning,
   'help': 'help' + constants.acceptsNoArgsWarning,
-  'quote': 'quote' + constants.acceptsNoArgsWarning,
+  'fortune': 'fortune' + constants.acceptsNoArgsWarning,
 
   'nick': {
     '': 'Provide some arguments, like: -v',
