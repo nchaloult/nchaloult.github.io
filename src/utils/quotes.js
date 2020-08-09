@@ -39,6 +39,10 @@ const quotes = [
     '- Michael Lewis',
     '"The Fifth Risk" book',
   ],
+  [
+    '"A city is a large community where people are lonesome together."',
+    '- Herbert V. Prochnow',
+  ],
 ];
 
 export { quotes };
