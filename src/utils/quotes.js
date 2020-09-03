@@ -43,6 +43,10 @@ const quotes = [
     '"A city is a large community where people are lonesome together."',
     '- Herbert V. Prochnow',
   ],
+  [
+    '"Every kid starts out as a natural-born scientist, and then we beat it out of them. A few trickle through the system with their wonder and enthusiasm for science intact."',
+    '- Carl Sagan',
+  ],
 ];
 
 export { quotes };
