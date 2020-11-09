@@ -47,6 +47,10 @@ const quotes = [
     '"Every kid starts out as a natural-born scientist, and then we beat it out of them. A few trickle through the system with their wonder and enthusiasm for science intact."',
     '- Carl Sagan',
   ],
+  [
+    '"Happiness, whether in business or private life, leaves little trace in history."',
+    '- Fernand Braudel',
+  ],
 ];
 
 export { quotes };
