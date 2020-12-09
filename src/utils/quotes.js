@@ -51,6 +51,11 @@ const quotes = [
     '"Happiness, whether in business or private life, leaves little trace in history."',
     '- Fernand Braudel',
   ],
+  [
+    '"Much still remains to do, and much will always remain, and the one who shall be born a thousand years hence will not be barred from this opportunity of adding something further."',
+    '- Seneca, translated by R. M. Gummere',
+    'Epistle #64 - https://www.stoictherapy.com/resources-epistles#64'
+  ]
 ];
 
 export { quotes };
