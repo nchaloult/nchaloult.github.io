@@ -55,6 +55,11 @@ const quotes = [
     '"Much still remains to do, and much will always remain, and the one who shall be born a thousand years hence will not be barred from this opportunity of adding something further."',
     '- Seneca, translated by R. M. Gummere',
     'Epistle #64 - https://www.stoictherapy.com/resources-epistles#64'
+  ],
+  [
+    '"Program testing can be a very effective way to show the presence of bugs, but it is hopelessly inadequate for showing their absence."',
+    '- Edsger Dijkstra',
+    '"The Humble Programmer" Essay - https://www.cs.utexas.edu/users/EWD/transcriptions/EWD03xx/EWD340.html'
   ]
 ];
 
