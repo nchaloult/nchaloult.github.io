@@ -60,7 +60,12 @@ const quotes = [
     '"Program testing can be a very effective way to show the presence of bugs, but it is hopelessly inadequate for showing their absence."',
     '- Edsger Dijkstra',
     '"The Humble Programmer" Essay - https://www.cs.utexas.edu/users/EWD/transcriptions/EWD03xx/EWD340.html'
-  ]
+  ],
+  [
+    '"Do not communicate by sharing memory; instead, share memory by communicating."',
+    '- Effective Go',
+    'https://golang.org/doc/effective_go.html#concurrency',
+  ],
 ];
 
 export { quotes };
