@@ -66,6 +66,11 @@ const quotes = [
     '- Effective Go',
     'https://golang.org/doc/effective_go.html#concurrency',
   ],
+  [
+    '"Seek solutions based on your own scrutiny, regardless of whether it produces what has been found before. There are often several ways to solve a given problem."',
+    '- Ralph P. Grimaldi',
+    'Discrete and Combinatorial Mathematics - An Applied Introduction',
+  ],
 ];
 
 export { quotes };
