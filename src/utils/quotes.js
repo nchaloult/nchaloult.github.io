@@ -71,6 +71,10 @@ const quotes = [
     '- Ralph P. Grimaldi',
     'Discrete and Combinatorial Mathematics - An Applied Introduction',
   ],
+  [
+    '"Any sufficiently advanced technology is indistinguishable from magic."',
+    '- Arthur C. Clarke',
+  ],
 ];
 
 export { quotes };
