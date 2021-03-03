@@ -75,6 +75,11 @@ const quotes = [
     '"Any sufficiently advanced technology is indistinguishable from magic."',
     '- Arthur C. Clarke',
   ],
+  [
+    '"From a software maintenance perspective there is little consensus on how to organize ML projects. It feels like websites before Rails came out: a bunch of random PHP scripts with an unholy mixture of business logic and markup sprinkled throughout."',
+    '- Ryan Dahl',
+    'https://tinyclouds.org/residency/',
+  ],
 ];
 
 export { quotes };
