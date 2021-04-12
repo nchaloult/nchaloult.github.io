@@ -72,6 +72,10 @@ const quotes = [
     '- Ryan Dahl',
     'https://tinyclouds.org/residency/',
   ],
+  [
+    '"We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins."',
+    '- Ellen Ullman',
+  ],
 ];
 
 export { quotes };
