@@ -61,7 +61,6 @@ const quotes = [
   [
     '"Seek solutions based on your own scrutiny, regardless of whether it produces what has been found before. There are often several ways to solve a given problem."',
     '- Ralph P. Grimaldi',
-    'Discrete and Combinatorial Mathematics - An Applied Introduction',
   ],
   [
     '"Any sufficiently advanced technology is indistinguishable from magic."',
@@ -75,6 +74,10 @@ const quotes = [
   [
     '"We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins."',
     '- Ellen Ullman',
+  ],
+  [
+    '"Automation was developed to free the rich from the working class, not to free the working class from the drudgeries of work."',
+    '- Unknown',
   ],
 ];
 
