@@ -31,7 +31,7 @@ const constants = {
   'linkedin': 'https://www.linkedin.com/in/nicholas-chaloult',
   'fullName': 'Nicholas Paul Chaloult',
   'resumeResponse': 'Click to view resume',
-  'version': 'v22-SNAPSHOT (22 years old)',
+  'version': '22',
 
   'resumeFileName': 'cv.pdf',
 };
