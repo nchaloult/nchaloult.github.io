@@ -27,7 +27,7 @@ function ManPage() {
       <p><b>SYNOPSIS</b></p>
       <div className="tabbed">
         <p>
-          <b>nick</b> [<b>-aeglnrv</b>]
+          <b>nick</b> [<b>-aegilnrv</b>]
         </p>
       </div>
 
@@ -73,6 +73,17 @@ function ManPage() {
         <div className="tabbed">
           <p>
             Prints a link to Nick's Github profile to the shell
+          </p>
+        </div>
+
+        { blankLine }
+
+        <p>
+          <b>-i, --interests</b>
+        </p>
+        <div className="tabbed">
+          <p>
+            Prints Nick's interests to the shell
           </p>
         </div>
 

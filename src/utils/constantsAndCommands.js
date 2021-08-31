@@ -28,6 +28,7 @@ const constants = {
 
   'email': 'nchaloult3@gatech.edu',
   'github': 'https://www.github.com/nchaloult',
+  'interests': 'Rust, consensus algorithms, distributed systems, systems programming, free and open-source software',
   'linkedin': 'https://www.linkedin.com/in/nicholas-chaloult',
   'fullName': 'Nicholas Paul Chaloult',
   'resumeResponse': 'Click to view resume',
@@ -68,6 +69,8 @@ const programs = {
     '--email': constants.email,
     '-g': constants.github,
     '--github': constants.github,
+    '-i': constants.interests,
+    '--interests': constants.interests,
     '-l': constants.linkedin,
     '--linkedin': constants.linkedin,
     '-n': constants.fullName,
