@@ -22,6 +22,13 @@ function ManPage() {
             <b>{command.name}</b> -- {manPage.shortDesc}
           </div>
         </div>
+        <div>
+          <b>SYNOPSIS</b>
+          <div className={styles.indented}>
+            {/* TODO: make these dynamic based on the supported commands */}
+            <b>{command.name} [-placeholder]</b>
+          </div>
+        </div>
       </div>
       <div className={styles.margin_row}>
         <span>{manPage.fullName}</span>
