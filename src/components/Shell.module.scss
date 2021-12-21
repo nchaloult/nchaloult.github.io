@@ -1,6 +1,9 @@
+@import '../variables.scss';
+
 #container {
   display: flex;
   flex: 1;
   flex-direction: column;
+  padding: $container-padding;
   height: 100%;
 }
