@@ -11,5 +11,12 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  row-gap: 2rem;
   height: 100%;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
 }

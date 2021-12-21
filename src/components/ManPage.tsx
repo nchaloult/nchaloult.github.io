@@ -15,14 +15,16 @@ function ManPage() {
           {command.name.toUpperCase()}({manPage.sectionNumber})
         </span>
       </div>
-      <span>
-        <b>NAME</b>
-        <div className={styles.indented}>
-          <span>
-            <b>{command.name}</b> -- {manPage.shortDesc}
-          </span>
-        </div>
-      </span>
+      <div id={styles.content}>
+        <span>
+          <b>NAME</b>
+          <div className={styles.indented}>
+            <span>
+              <b>{command.name}</b> -- {manPage.shortDesc}
+            </span>
+          </div>
+        </span>
+      </div>
       <div className={styles.margin_row}>
         <span>{manPage.fullName}</span>
         <span>
