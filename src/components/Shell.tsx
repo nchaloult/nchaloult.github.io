@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Prompt from './Prompt';
 import styles from './Shell.module.scss';
 
 function Shell() {
@@ -7,7 +8,12 @@ function Shell() {
     <span key={42}>foo</span>,
   ]);
 
-  return <div id={styles.container}>{prevLines}</div>;
+  return (
+    <div id={styles.container}>
+      {prevLines}
+      <Prompt />
+    </div>
+  );
 }
 
 export default Shell;

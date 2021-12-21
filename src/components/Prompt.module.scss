@@ -1,0 +1,23 @@
+#container {
+  display: flex;
+}
+
+#input {
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+input[type='text'] {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+
+  // Don't display "I-beam" cursor when hovering over prompt input text
+  // field.
+  &:hover {
+    cursor: default;
+  }
+}
