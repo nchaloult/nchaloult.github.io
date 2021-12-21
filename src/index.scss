@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap');
+@import 'variables.scss';
 
 body {
   margin: 0;
@@ -6,4 +7,7 @@ body {
     'Courier New', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: $background;
+  color: $color;
 }
