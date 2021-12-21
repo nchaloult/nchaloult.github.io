@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Shell.module.scss';
 
 function Shell() {
-  return <div id={styles.container}>shell component</div>;
+  const [prevLines, setPrevLines] = useState<JSX.Element[]>([
+    <span key={24}>shell component</span>,
+    <span key={42}>foo</span>,
+  ]);
+
+  return <div id={styles.container}>{prevLines}</div>;
 }
 
 export default Shell;
