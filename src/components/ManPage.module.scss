@@ -1,5 +1,11 @@
+.margin_row {
+  display: flex;
+  justify-content: space-between;
+}
+
 #container {
   display: flex;
   flex: 1;
+  flex-direction: column;
   height: 100%;
 }
