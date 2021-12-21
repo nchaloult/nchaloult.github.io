@@ -26,7 +26,7 @@ function ManPage() {
           <b>SYNOPSIS</b>
           <div className={styles.indented}>
             {/* TODO: make these dynamic based on the supported commands */}
-            <b>{command.name} [-placeholder]</b>
+            <b>{command.name} [-aegilr]</b>
           </div>
         </div>
         <div>
