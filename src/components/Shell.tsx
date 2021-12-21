@@ -4,8 +4,9 @@ import styles from './Shell.module.scss';
 
 function Shell() {
   const [prevLines, setPrevLines] = useState<JSX.Element[]>([
-    <span key={24}>shell component</span>,
-    <span key={42}>foo</span>,
+    <span key={24}>
+      Type &quot;help&quot;, then press Enter, for available commands
+    </span>,
   ]);
 
   return (
