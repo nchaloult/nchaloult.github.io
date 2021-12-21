@@ -16,14 +16,12 @@ function ManPage() {
         </span>
       </div>
       <div id={styles.content}>
-        <span>
+        <div>
           <b>NAME</b>
           <div className={styles.indented}>
-            <span>
-              <b>{command.name}</b> -- {manPage.shortDesc}
-            </span>
+            <b>{command.name}</b> -- {manPage.shortDesc}
           </div>
-        </span>
+        </div>
       </div>
       <div className={styles.margin_row}>
         <span>{manPage.fullName}</span>
