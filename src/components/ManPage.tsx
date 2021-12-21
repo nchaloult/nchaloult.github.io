@@ -15,6 +15,12 @@ function ManPage() {
           {command.name.toUpperCase()}({manPage.sectionNumber})
         </span>
       </div>
+      <div className={styles.margin_row}>
+        <span>{manPage.fullName}</span>
+        <span>
+          {command.name.toUpperCase()}({manPage.sectionNumber})
+        </span>
+      </div>
     </div>
   );
 }
