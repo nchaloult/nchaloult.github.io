@@ -29,6 +29,12 @@ function ManPage() {
             <b>{command.name} [-placeholder]</b>
           </div>
         </div>
+        <div>
+          <b>DESCRIPTION</b>
+          <div className={styles.indented}>
+            <b>{command.name}</b> {manPage.desc}
+          </div>
+        </div>
       </div>
       <div className={styles.margin_row}>
         <span>{manPage.fullName}</span>
