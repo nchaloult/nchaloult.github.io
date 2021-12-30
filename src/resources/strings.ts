@@ -1,3 +1,5 @@
+export const prompt = 'guest@nchaloult.com:~$';
+
 export const command = {
   name: 'nick',
   interests:

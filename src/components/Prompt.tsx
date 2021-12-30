@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './Prompt.module.scss';
+import { prompt } from '../resources/strings';
 
 function Prompt() {
   return (
     <div id={styles.container}>
-      <b>guest@nchaloult.com:~$</b>
+      <b>{prompt}</b>
       <form id={styles.input}>
         <input
           autoFocus
