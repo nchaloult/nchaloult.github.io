@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import styles from './Prompt.module.scss';
 import { prompt } from '../resources/strings';
 
-function Prompt() {
+type Props = {
+  sendCommandToShell(cmd: string): void;
+};
+
+function Prompt(props: Props) {
   const [cmd, setCmd] = useState('');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    alert(`running the command: ${cmd}`);
+    props.sendCommandToShell(cmd);
     setCmd('');
   }
 
