@@ -22,14 +22,11 @@ const programs: { [name: string]: Program } = {
 //
 // Ex: cmd = "nick -a"
 export function parseCommand(cmd: string): JSX.Element {
-  // Strip out the program name.
   let programName = cmd;
   const firstSpaceIdx = cmd.indexOf(' ');
   if (firstSpaceIdx !== -1) {
     programName = cmd.substring(0, firstSpaceIdx);
   }
-
-  // Invoke the corresponding program.
 
   if (!(programName in programs)) {
     return <span>Command not found: {programName}</span>;
