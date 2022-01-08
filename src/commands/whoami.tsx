@@ -1,7 +1,7 @@
 import React from 'react';
 import { AcceptsNoArgsError, Program } from '.';
 
-export class Whoami implements Program {
+export default class Whoami implements Program {
   run(options: Set<string>): JSX.Element {
     if (options.size !== 0) {
       throw new AcceptsNoArgsError();

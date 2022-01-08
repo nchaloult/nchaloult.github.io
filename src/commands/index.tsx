@@ -1,5 +1,5 @@
 import React from 'react';
-import { Whoami } from './whoami';
+import Whoami from './whoami';
 
 export class AcceptsNoArgsError extends Error {}
 
