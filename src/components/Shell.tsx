@@ -20,9 +20,16 @@ function Shell() {
         <b>{prompt}</b> {cmd}
       </span>
     );
-    // TODO: Parse command. For now, just hard code the command's output.
-    const output = <span>foo</span>;
-    setPrevLines([...prevLines, cmdWithPrompt, output]);
+
+    // If the user just pressed Enter and cmd is empty, mimic the behavior of a
+    // real shell by just adding cmdWithPrompt to the prevLines array.
+    if (cmd === '') {
+      setPrevLines([...prevLines, cmdWithPrompt]);
+    } else {
+      // TODO: Parse command. For now, just hard code the command's output.
+      const output = <span>foo</span>;
+      setPrevLines([...prevLines, cmdWithPrompt, output]);
+    }
   }
 
   return (
