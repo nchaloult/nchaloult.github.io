@@ -2,7 +2,7 @@ import React from 'react';
 import { Whoami } from './whoami';
 
 export interface Program {
-  run(args: string[]): JSX.Element;
+  run(options: Set<string>): JSX.Element;
 }
 
 // Associates program names with their corresponding Program objects. Used by
@@ -33,10 +33,83 @@ export function parseCommand(cmd: string): JSX.Element {
     return <span>Command not found: {programName}</span>;
   }
 
-  let args = cmd.substring(firstSpaceIdx + 1).split(' ');
   if (firstSpaceIdx === -1) {
-    args = [];
+    // No args were provided. Run the program with no options.
+    return programs[programName].run(new Set<string>());
   }
 
-  return programs[programName].run(args);
+  const args = cmd.substring(firstSpaceIdx + 1).trim();
+  try {
+    const options = parseArgs(args);
+    return programs[programName].run(options);
+  } catch (e) {
+    return <span>Invalid argument: {getErrorMessage(e)}</span>;
+  }
+}
+
+// Parses the command line arguments that were provided with a command, and
+// returns a set of the corresponding options.
+//
+// Throws an Error if an arg is invalid or malformed, like if it doesn't begin
+// with a '-'. The body of that Error is the invalid section that caused it.
+//
+// Ex: args: '-f' -> ['f']
+// Ex: args: '-f -o' -> ['f', 'o']
+// Ex: args: '-f -o -o' -> ['f', 'o']
+// Ex: args: '-fo' -> ['f', 'o']
+// Ex: args: '--foo' -> ['foo']
+// Ex: args: '--foo -o' -> ['foo', 'o']
+function parseArgs(args: string): Set<string> {
+  const options = new Set<string>();
+  if (args.length === 0) {
+    return options;
+  }
+
+  // Spaces separate sections, so a section is one chunk of options.
+  //
+  // Ex: '-f'
+  // Ex: '-fo'
+  // Ex: '--foo'
+  const sections = args.split(' ');
+  for (const section of sections) {
+    if (!section.startsWith('-') || section === '-' || section === '--') {
+      throw new Error(section);
+    }
+
+    if (section.startsWith('--')) {
+      // This section is a long-form one, like '--foo'.
+
+      for (let i = 2; i < section.length; i++) {
+        // Don't allow rogue '-' chars in the middle of a section, like
+        // '--fo-o'.
+        if (section.charAt(i) === '-') {
+          throw new Error(section);
+        }
+      }
+
+      options.add(section.substring(2));
+    } else if (section.startsWith('-')) {
+      // This section is a short-form one, like '-f'.
+      for (let i = 1; i < section.length; i++) {
+        const curChar = section.charAt(i);
+        // Don't allow rogue '-' chars in the middle of a section, like '-fo-o'.
+        if (curChar === '-') {
+          throw new Error(section);
+        }
+
+        options.add(curChar);
+      }
+    }
+  }
+
+  return options;
+}
+
+// Helper function to help us get around Error objects being of type 'unknown'
+// in catch clauses.
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return String(error);
 }
