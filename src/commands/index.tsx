@@ -1,4 +1,5 @@
 import React from 'react';
+import { Whoami } from './whoami';
 
 export interface Program {
   run(args: string[]): JSX.Element;
@@ -6,7 +7,9 @@ export interface Program {
 
 // Associates program names with their corresponding Program objects. Used by
 // parseCommand() to invoke the right program.
-const programs: { [name: string]: Program } = {};
+const programs: { [name: string]: Program } = {
+  whoami: new Whoami(),
+};
 
 // Parses user input and returns a new piece of JSX to render to the Shell as a
 // response.
