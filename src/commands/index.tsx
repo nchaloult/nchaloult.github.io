@@ -124,6 +124,8 @@ function parseArgs(args: string): Set<string> {
 
 // Helper function to help us get around Error objects being of type 'unknown'
 // in catch clauses.
+//
+// https://kentcdodds.com/blog/get-a-catch-block-error-message-with-typescript
 function getErrorMessage(error: unknown): string {
   if (error instanceof Error) {
     return error.message;
