@@ -1,6 +1,8 @@
 import React from 'react';
 import { Whoami } from './whoami';
 
+export class AcceptsNoArgsError extends Error {}
+
 export interface Program {
   run(options: Set<string>): JSX.Element;
 }
@@ -33,15 +35,31 @@ export function parseCommand(cmd: string): JSX.Element {
     return <span>Command not found: {programName}</span>;
   }
 
+  let args = cmd.substring(firstSpaceIdx + 1).trim();
   if (firstSpaceIdx === -1) {
-    // No args were provided. Run the program with no options.
-    return programs[programName].run(new Set<string>());
+    // No args were provided, but because firstSpaceIdx is -1, args is currently
+    // equal to the program name. Passing that into the parseArgs() func would
+    // mess things up.
+    args = '';
   }
 
-  const args = cmd.substring(firstSpaceIdx + 1).trim();
   try {
     const options = parseArgs(args);
-    return programs[programName].run(options);
+    try {
+      return programs[programName].run(options);
+    } catch (e) {
+      if (e instanceof AcceptsNoArgsError) {
+        return <span>{programName} doesn&apos;t accept any arguments</span>;
+      } else {
+        // We should never reach this point.
+        return (
+          <>
+            <span>Something went wrong while running {programName}:</span>
+            <b>{String(e)}</b>
+          </>
+        );
+      }
+    }
   } catch (e) {
     return <span>Invalid argument: {getErrorMessage(e)}</span>;
   }
