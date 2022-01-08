@@ -1,4 +1,5 @@
 import React from 'react';
+import Help from './help';
 import Whoami from './whoami';
 
 export class AcceptsNoArgsError extends Error {}
@@ -10,6 +11,7 @@ export interface Program {
 // Associates program names with their corresponding Program objects. Used by
 // parseCommand() to invoke the right program.
 const programs: { [name: string]: Program } = {
+  help: new Help(),
   whoami: new Whoami(),
 };
 
