@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Prompt from './Prompt';
 import styles from './Shell.module.scss';
 import { prompt } from '../resources/strings';
+import { parseCommand } from '../commands';
 
 function Shell() {
   const [prevLines, setPrevLines] = useState<JSX.Element[]>([
@@ -26,9 +27,7 @@ function Shell() {
     if (cmd === '') {
       setPrevLines([...prevLines, cmdWithPrompt]);
     } else {
-      // TODO: Parse command. For now, just hard code the command's output.
-      const output = <span>foo</span>;
-      setPrevLines([...prevLines, cmdWithPrompt, output]);
+      setPrevLines([...prevLines, cmdWithPrompt, parseCommand(cmd)]);
     }
   }
 
