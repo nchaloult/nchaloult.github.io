@@ -1,4 +1,5 @@
 import React from 'react';
+import Clear from './clear';
 import Help from './help';
 import Whoami from './whoami';
 
@@ -11,6 +12,7 @@ export interface Program {
 // Associates program names with their corresponding Program objects. Used by
 // parseCommand() to invoke the right program.
 const programs: { [name: string]: Program } = {
+  clear: new Clear(),
   help: new Help(),
   whoami: new Whoami(),
 };
