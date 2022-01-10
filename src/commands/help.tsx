@@ -33,6 +33,7 @@ export default class Help implements Program {
         <span>clear</span>
         <span>fortune</span>
         <span>help</span>
+        <span>nick</span>
         <span>whoami</span>
       </>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import Clear from './clear';
 import Fortune from './fortune';
 import Help from './help';
+import Nick from './nick';
 import Whoami from './whoami';
 
 export class AcceptsNoArgsError extends Error {}
@@ -16,6 +17,7 @@ const programs: { [name: string]: Program } = {
   clear: new Clear(),
   fortune: new Fortune(),
   help: new Help(),
+  nick: new Nick(),
   whoami: new Whoami(),
 };
 
