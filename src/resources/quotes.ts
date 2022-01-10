@@ -1,4 +1,4 @@
-type Quote = {
+export type Quote = {
   text: string;
   author?: string;
   source?: Source;
