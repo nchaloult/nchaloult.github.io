@@ -3,7 +3,7 @@ import { AcceptsNoArgsError, Program } from '.';
 
 type Quote = {
   text: string;
-  author: string;
+  author?: string;
   source?: string;
 };
 
@@ -37,7 +37,10 @@ export default class Fortune implements Program {
     return (
       <>
         <span>&quot;{quote.text}&quot;</span>
-        <span>- {quote.author}</span>
+
+        {quote.author && <span>- {quote.author}</span>}
+        {!quote.author && <span>- Unknown</span>}
+
         {quote.source && (
           <a href={quote.source} target="_blank" rel="noopener noreferrer">
             {quote.source}
