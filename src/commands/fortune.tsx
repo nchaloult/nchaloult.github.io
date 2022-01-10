@@ -4,7 +4,12 @@ import { AcceptsNoArgsError, Program } from '.';
 type Quote = {
   text: string;
   author?: string;
-  source?: string;
+  source?: Source;
+};
+
+type Source = {
+  text: string;
+  isAURL: boolean;
 };
 
 export default class Fortune implements Program {
@@ -13,8 +18,10 @@ export default class Fortune implements Program {
     {
       text: 'The key to making programs fast is to make them do practically nothing. ;-)',
       author: 'Mike Haertel, original GNU grep author',
-      source:
-        'https://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html',
+      source: {
+        text: 'https://lists.freebsd.org/pipermail/freebsd-current/2010-August/019310.html',
+        isAURL: true,
+      },
     },
   ];
 
@@ -34,6 +41,16 @@ export default class Fortune implements Program {
     const quote = this.quotes[this.curQuoteIdx];
     this.curQuoteIdx = (this.curQuoteIdx + 1) % this.quotes.length;
 
+    let sourceContent = null;
+    if (quote.source && quote.source.isAURL) {
+      sourceContent = (
+        <a href={quote.source.text} target="_blank" rel="noopener noreferrer">
+          {quote.source.text}
+        </a>
+      );
+    } else if (quote.source) {
+      sourceContent = <span>{quote.source.text}</span>;
+    }
     return (
       <>
         <span>&quot;{quote.text}&quot;</span>
@@ -41,11 +58,7 @@ export default class Fortune implements Program {
         {quote.author && <span>- {quote.author}</span>}
         {!quote.author && <span>- Unknown</span>}
 
-        {quote.source && (
-          <a href={quote.source} target="_blank" rel="noopener noreferrer">
-            {quote.source}
-          </a>
-        )}
+        {sourceContent}
       </>
     );
   }
