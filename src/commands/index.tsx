@@ -1,5 +1,6 @@
 import React from 'react';
 import Clear from './clear';
+import Fortune from './fortune';
 import Help from './help';
 import Whoami from './whoami';
 
@@ -13,6 +14,7 @@ export interface Program {
 // parseCommand() to invoke the right program.
 const programs: { [name: string]: Program } = {
   clear: new Clear(),
+  fortune: new Fortune(),
   help: new Help(),
   whoami: new Whoami(),
 };

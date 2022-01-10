@@ -31,6 +31,7 @@ export default class Help implements Program {
         {/* TODO: Make this content dynamic based on the `programs` map in
         index.tsx */}
         <span>clear</span>
+        <span>fortune</span>
         <span>help</span>
         <span>whoami</span>
       </>
