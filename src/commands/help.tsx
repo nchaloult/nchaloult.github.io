@@ -9,7 +9,6 @@ export default class Help implements Program {
 
     return (
       <>
-        <br />
         <span>How to Use Commands</span>
         <span>===================</span>
         <span>Type &quot;nick -a&quot;, then press Enter.</span>
