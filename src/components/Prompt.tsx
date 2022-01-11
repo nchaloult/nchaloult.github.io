@@ -7,12 +7,12 @@ type Props = {
 };
 
 function Prompt(props: Props) {
-  const [cmd, setCmd] = useState('');
+  const [command, setCommand] = useState('');
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    props.sendCommandToShell(cmd);
-    setCmd('');
+    props.sendCommandToShell(command);
+    setCommand('');
   }
 
   return (
@@ -29,8 +29,8 @@ function Prompt(props: Props) {
           autoCapitalize="off"
           spellCheck="false"
           type="text"
-          value={cmd}
-          onChange={(e) => setCmd(e.target.value)}
+          value={command}
+          onChange={(e) => setCommand(e.target.value)}
         />
       </form>
     </div>
