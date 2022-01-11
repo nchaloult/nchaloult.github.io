@@ -4,7 +4,10 @@ import styles from './Shell.module.scss';
 import { prompt } from '../resources/strings';
 import { parseCommand } from '../commands';
 
-function Shell() {
+type DivProps = React.HTMLProps<HTMLDivElement>;
+
+// eslint-disable-next-line react/display-name
+const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
   const [prevLines, setPrevLines] = useState<JSX.Element[]>([
     // A hard coded key is provided since this is a list, and all elements in a
     // list that are drawn to the screen need a key.
@@ -39,11 +42,14 @@ function Shell() {
   }
 
   return (
-    <div id={styles.container}>
+    // This ref is attached to the container div to enable the
+    // click-anywhere-to-focus functionality for the Prompt component's input
+    // text field to work.
+    <div ref={ref} id={styles.container}>
       {prevLines}
       <Prompt sendCommandToShell={handleNewCommand} />
     </div>
   );
-}
+});
 
 export default Shell;

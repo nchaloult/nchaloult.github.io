@@ -20,6 +20,9 @@ function Prompt(props: Props) {
       <b>{prompt}</b>
       <form id={styles.input} onSubmit={handleSubmit}>
         <input
+          // This hard coded ID is present to enable the
+          // click-anywhere-to-focus-me functionality to work.
+          id="prompt-input-text-field"
           autoFocus
           autoComplete="off"
           autoCorrect="off"
