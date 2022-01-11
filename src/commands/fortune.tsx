@@ -1,6 +1,7 @@
 import React from 'react';
 import { AcceptsNoArgsError, Program } from '.';
 import { Quote, quotes } from '../resources/quotes';
+import styles from './Fortune.module.scss';
 
 export default class Fortune implements Program {
   private quotes: Quote[];
@@ -39,8 +40,8 @@ export default class Fortune implements Program {
       <>
         <span>&quot;{quote.text}&quot;</span>
 
-        {quote.author && <span>- {quote.author}</span>}
-        {!quote.author && <span>- Unknown</span>}
+        {quote.author && <span id={styles.author}>- {quote.author}</span>}
+        {!quote.author && <span id={styles.author}>- Unknown</span>}
 
         {sourceContent}
       </>
