@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Prompt from './Prompt';
 import styles from './Shell.module.scss';
 import { prompt } from '../resources/strings';
 import { parseCommand } from '../commands';
+import { flushSync } from 'react-dom';
 
 type DivProps = React.HTMLProps<HTMLDivElement>;
 
 // eslint-disable-next-line react/display-name
 const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
+  const innerContainerRef = useRef<HTMLDivElement>(null);
   const [prevLines, setPrevLines] = useState<JSX.Element[]>([
     // A hard coded key is provided since this is a list, and all elements in a
     // list that are drawn to the screen need a key.
@@ -15,6 +17,22 @@ const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
       Type &quot;help&quot;, then press Enter, for available commands
     </span>,
   ]);
+
+  // Helper function that wraps setPrevLines(). Auto-scrolls so that the newest
+  // lines that are at the bottom of our container div are in view.
+  function changePrevLines(lines: JSX.Element[]) {
+    // Ensure that the DOM has been updated before considering whether to
+    // auto-scroll.
+    flushSync(() => setPrevLines(lines));
+
+    if (innerContainerRef && innerContainerRef.current) {
+      const lastChild = innerContainerRef.current.lastElementChild;
+      lastChild?.scrollIntoView({
+        block: 'end',
+        inline: 'nearest',
+      });
+    }
+  }
 
   function handleNewCommand(cmd: string): void {
     // TODO: This piece is duplicated with the corresponding piece in the Prompt
@@ -28,16 +46,16 @@ const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
     if (cmd === '') {
       // If the user just pressed Enter and cmd is empty, mimic the behavior of
       // a real shell by just adding cmdWithPrompt to the prevLines array.
-      setPrevLines([...prevLines, cmdWithPrompt]);
+      changePrevLines([...prevLines, cmdWithPrompt]);
     } else if (cmd === 'clear') {
       // Handle the clear program's special behavior here since we have easy
       // access to the setPrevLines() hook.
       //
       // TODO: Reevaluate this approach to implementing `clear`? Idk tho — that
       // might mean I'd have to revisit the way I'm doing a lot of stuff...
-      setPrevLines([]);
+      changePrevLines([]);
     } else {
-      setPrevLines([...prevLines, cmdWithPrompt, parseCommand(cmd)]);
+      changePrevLines([...prevLines, cmdWithPrompt, parseCommand(cmd)]);
     }
   }
 
@@ -45,9 +63,11 @@ const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
     // This ref is attached to the container div to enable the
     // click-anywhere-to-focus functionality for the Prompt component's input
     // text field to work.
-    <div ref={ref} id={styles.container}>
-      {prevLines}
-      <Prompt sendCommandToShell={handleNewCommand} />
+    <div ref={ref} id={styles.outer_container}>
+      <div ref={innerContainerRef} id={styles.inner_container}>
+        {prevLines}
+        <Prompt sendCommandToShell={handleNewCommand} />
+      </div>
     </div>
   );
 });
