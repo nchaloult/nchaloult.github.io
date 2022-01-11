@@ -65,6 +65,7 @@ function Prompt(props: Props) {
     e.preventDefault();
     props.sendCommandToShell(command);
     setPrevCommands([command, ...prevCommands]);
+    setPrevCommandIdx(0);
     setCommand('');
   }
 
