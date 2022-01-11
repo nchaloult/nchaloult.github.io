@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import Prompt from './Prompt';
 import styles from './Shell.module.scss';
-import { prompt } from '../resources/strings';
 import { parseCommand } from '../commands';
 import { flushSync } from 'react-dom';
+import PromptPrefix from './PromptPrefix';
 
 type DivProps = React.HTMLProps<HTMLDivElement>;
 
@@ -35,11 +35,9 @@ const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
   }
 
   function handleNewCommand(cmd: string): void {
-    // TODO: This piece is duplicated with the corresponding piece in the Prompt
-    // component. Find a way to refactor.
     const cmdWithPrompt = (
       <span>
-        <b>{prompt}</b> {cmd}
+        <PromptPrefix /> {cmd}
       </span>
     );
 

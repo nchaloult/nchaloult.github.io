@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './Prompt.module.scss';
-import { prompt } from '../resources/strings';
+import PromptPrefix from './PromptPrefix';
 
 type Props = {
   sendCommandToShell(cmd: string): void;
@@ -71,7 +71,7 @@ function Prompt(props: Props) {
 
   return (
     <div id={styles.container}>
-      <b>{prompt}</b>
+      <PromptPrefix />
       <form id={styles.input} onSubmit={handleSubmit}>
         <input
           // This hard coded ID is present to enable the
