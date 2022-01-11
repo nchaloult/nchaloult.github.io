@@ -1,6 +1,5 @@
 import React from 'react';
 import { Program } from '.';
-import { command } from '../resources/strings';
 
 export default class Nick implements Program {
   run(options: Set<string>): JSX.Element {
@@ -77,7 +76,12 @@ export default class Nick implements Program {
   }
 
   private getInterestsOptionContent(): JSX.Element {
-    return <span>{command.interests}</span>;
+    return (
+      <span>
+        Rust, consensus algorithms, distributed systems, and free and
+        open-source projects
+      </span>
+    );
   }
 
   private getLinkedInOptionContent(): JSX.Element {

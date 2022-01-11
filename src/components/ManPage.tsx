@@ -1,38 +1,37 @@
 import React from 'react';
 import styles from './ManPage.module.scss';
 
-import { command, manPage } from '../resources/strings';
-
 function ManPage() {
   return (
     <div id={styles.container}>
       <div className={styles.margin_row}>
-        <span>
-          {command.name.toUpperCase()}({manPage.sectionNumber})
-        </span>
+        <span>NICK(1)</span>
         <span>nchaloult.com General Commands Manual</span>
-        <span>
-          {command.name.toUpperCase()}({manPage.sectionNumber})
-        </span>
+        <span>NICK(1)</span>
       </div>
       <div id={styles.content}>
         <div>
           <b>NAME</b>
           <div className={styles.indented}>
-            <b>{command.name}</b> -- {manPage.shortDesc}
+            <b>nick</b> -- a Computer Science graduate from Georgia Tech who is
+            eager to learn about new technologies and best practices
           </div>
         </div>
         <div>
           <b>SYNOPSIS</b>
           <div className={styles.indented}>
             {/* TODO: make these dynamic based on the supported commands */}
-            <b>{command.name} [-aegilr]</b>
+            <b>nick [-aegilr]</b>
           </div>
         </div>
         <div>
           <b>DESCRIPTION</b>
           <div className={styles.indented}>
-            <b>{command.name}</b> {manPage.desc}
+            <b>nick</b> enjoys discovering better ways to write maintainable
+            software. Currently interested in Rust, consensus algorithms,
+            distributed systems, and free and open-source projects.
+            Concentrations in school were Intelligence (AI & ML) and Information
+            and Internetworks (database technologies).
           </div>
         </div>
         <div>
@@ -79,10 +78,8 @@ function ManPage() {
         </div>
       </div>
       <div className={styles.margin_row}>
-        <span>{manPage.fullName}</span>
-        <span>
-          {command.name.toUpperCase()}({manPage.sectionNumber})
-        </span>
+        <span>Nicholas Chaloult</span>
+        <span>NICK(1)</span>
       </div>
     </div>
   );
