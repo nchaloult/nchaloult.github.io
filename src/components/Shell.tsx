@@ -14,7 +14,8 @@ const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
     // A hard coded key is provided since this is a list, and all elements in a
     // list that are drawn to the screen need a key.
     <span key={42}>
-      Type &quot;help&quot;, then press Enter, for available commands
+      Type <b className={styles.highlighted}>help</b>, then press Enter, for
+      available commands
     </span>,
   ]);
 

@@ -1,5 +1,9 @@
 @import '../variables.scss';
 
+.highlighted {
+  color: $teal;
+}
+
 #outer_container {
   display: flex;
   flex: 1;
