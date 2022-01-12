@@ -1,6 +1,6 @@
 import React from 'react';
 import { AcceptsNoArgsError, Program } from '.';
-import { Quote, quotes } from '../resources/quotes';
+import { Quote, quotes } from '../quotes';
 import styles from './Fortune.module.scss';
 
 export default class Fortune implements Program {
