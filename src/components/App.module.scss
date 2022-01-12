@@ -1,4 +1,14 @@
+@import '../variables.scss';
+
 #container {
   display: flex;
   height: 100vh;
+
+  @media screen and (max-width: $mobile-screen-width) {
+    flex-direction: column;
+
+    > div:first-child {
+      border-bottom: 4px solid $lighter-background;
+    }
+  }
 }

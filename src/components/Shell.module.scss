@@ -8,6 +8,10 @@
   display: flex;
   flex: 1;
   padding: $container-padding;
+
+  @media screen and (max-width: $mobile-screen-width) {
+    height: 50vh;
+  }
 }
 
 #inner_container {

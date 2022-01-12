@@ -6,7 +6,9 @@ function ManPage() {
     <div id={styles.container}>
       <div className={styles.margin_row}>
         <span>NICK(1)</span>
-        <span>nchaloult.com General Commands Manual</span>
+        <span className={styles.centered_text}>
+          nchaloult.com General Commands Manual
+        </span>
         <span>NICK(1)</span>
       </div>
       <div id={styles.content}>

@@ -9,12 +9,21 @@
   padding-left: 3rem;
 }
 
+.centered_text {
+  text-align: center;
+}
+
 #container {
   display: flex;
   flex: 1;
   flex-direction: column;
   row-gap: 2rem;
   padding: $container-padding;
+  overflow-y: scroll;
+
+  @media screen and (max-width: $mobile-screen-width) {
+    height: 50vh;
+  }
 }
 
 #content {
