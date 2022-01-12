@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { AcceptsNoArgsError, Program } from '.';
+import { getRandomKey } from '../utils';
 import styles from './Help.module.scss';
 
 export default class Help implements Program {
@@ -9,7 +10,7 @@ export default class Help implements Program {
     }
 
     return (
-      <>
+      <Fragment key={getRandomKey()}>
         <b>How to Use Commands</b>
         <b>===================</b>
         <span>
@@ -43,7 +44,7 @@ export default class Help implements Program {
         <b className={styles.highlighted}>help</b>
         <b className={styles.highlighted}>nick</b>
         <b className={styles.highlighted}>whoami</b>
-      </>
+      </Fragment>
     );
   }
 }

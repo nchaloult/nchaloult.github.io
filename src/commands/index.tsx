@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Clear from './clear';
 import Fortune from './fortune';
 import Help from './help';
 import Nick from './nick';
 import Whoami from './whoami';
+import { getRandomKey } from '../utils';
 
 export class AcceptsNoArgsError extends Error {}
 
@@ -37,7 +38,7 @@ export function parseCommand(cmd: string): JSX.Element {
   }
 
   if (!(programName in programs)) {
-    return <span>Command not found: {programName}</span>;
+    return <span key={getRandomKey()}>Command not found: {programName}</span>;
   }
 
   let args = cmd.substring(firstSpaceIdx + 1).trim();
@@ -54,19 +55,25 @@ export function parseCommand(cmd: string): JSX.Element {
       return programs[programName].run(options);
     } catch (e) {
       if (e instanceof AcceptsNoArgsError) {
-        return <span>{programName} doesn&apos;t accept any arguments</span>;
+        return (
+          <span key={getRandomKey()}>
+            {programName} doesn&apos;t accept any arguments
+          </span>
+        );
       } else {
         // We should never reach this point.
         return (
-          <>
+          <Fragment key={getRandomKey()}>
             <span>Something went wrong while running {programName}:</span>
             <b>{String(e)}</b>
-          </>
+          </Fragment>
         );
       }
     }
   } catch (e) {
-    return <span>Invalid argument: {getErrorMessage(e)}</span>;
+    return (
+      <span key={getRandomKey()}>Invalid argument: {getErrorMessage(e)}</span>
+    );
   }
 }
 

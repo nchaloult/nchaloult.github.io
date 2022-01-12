@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { AcceptsNoArgsError, Program } from '.';
 import { Quote, quotes } from '../quotes';
+import { getRandomKey } from '../utils';
 import styles from './Fortune.module.scss';
 
 export default class Fortune implements Program {
@@ -37,14 +38,14 @@ export default class Fortune implements Program {
       sourceContent = <span>{quote.source.text}</span>;
     }
     return (
-      <>
+      <Fragment key={getRandomKey()}>
         <span>&quot;{quote.text}&quot;</span>
 
         {quote.author && <span id={styles.author}>- {quote.author}</span>}
         {!quote.author && <span id={styles.author}>- Unknown</span>}
 
         {sourceContent}
-      </>
+      </Fragment>
     );
   }
 }

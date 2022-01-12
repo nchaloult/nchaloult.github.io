@@ -1,5 +1,6 @@
 import React from 'react';
 import { AcceptsNoArgsError, Program } from '.';
+import { getRandomKey } from '../utils';
 
 export default class Whoami implements Program {
   run(options: Set<string>): JSX.Element {
@@ -7,6 +8,6 @@ export default class Whoami implements Program {
       throw new AcceptsNoArgsError();
     }
 
-    return <span>guest</span>;
+    return <span key={getRandomKey()}>guest</span>;
   }
 }

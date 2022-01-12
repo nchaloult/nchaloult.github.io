@@ -4,6 +4,7 @@ import styles from './Shell.module.scss';
 import { parseCommand } from '../commands';
 import { flushSync } from 'react-dom';
 import PromptPrefix from './PromptPrefix';
+import { getRandomKey } from '../utils';
 
 type DivProps = React.HTMLProps<HTMLDivElement>;
 
@@ -13,7 +14,7 @@ const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
   const [prevLines, setPrevLines] = useState<JSX.Element[]>([
     // A hard coded key is provided since this is a list, and all elements in a
     // list that are drawn to the screen need a key.
-    <span key={42}>
+    <span key={getRandomKey()}>
       Type <b className={styles.highlighted}>help</b>, then press Enter, for
       available commands
     </span>,
@@ -37,7 +38,7 @@ const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
 
   function handleNewCommand(cmd: string): void {
     const cmdWithPrompt = (
-      <span>
+      <span key={getRandomKey()}>
         <PromptPrefix /> {cmd}
       </span>
     );

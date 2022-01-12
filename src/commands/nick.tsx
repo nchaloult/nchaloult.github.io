@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Program } from '.';
+import { getRandomKey } from '../utils';
 
 export default class Nick implements Program {
   run(options: Set<string>): JSX.Element {
     if (options.size === 0) {
-      return <span>Provide some options, like: -a</span>;
+      return <span key={getRandomKey()}>Provide some options, like: -a</span>;
     }
 
     const lines: JSX.Element[] = [];
@@ -51,13 +52,21 @@ export default class Nick implements Program {
             badOption = `-${option}`;
           }
           return (
-            <span>{badOption} isn&apos;t recognized or supported by: nick</span>
+            <span key={getRandomKey()}>
+              {badOption} isn&apos;t recognized or supported by: nick
+            </span>
           );
         }
       }
     }
 
-    return <>{lines.map((line) => line)}</>;
+    return (
+      <Fragment key={getRandomKey()}>
+        {lines.map((line) => (
+          <Fragment key={getRandomKey()}>{line}</Fragment>
+        ))}
+      </Fragment>
+    );
   }
 
   private getEmailOptionContent(): JSX.Element {
