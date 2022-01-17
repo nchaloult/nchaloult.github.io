@@ -108,7 +108,7 @@ export default class Nick implements Program {
     return (
       <a
         // TODO: Make this more modular or easy to change in the future.
-        href={`${process.env.PUBLIC_URL}/cv.pdf`}
+        href={`${process.env.PUBLIC_URL}/resume.pdf`}
         target="_blank"
         rel="noopener noreferrer">
         Click to view resume
