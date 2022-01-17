@@ -60,15 +60,14 @@ export function parseCommand(cmd: string): JSX.Element {
             {programName} doesn&apos;t accept any arguments
           </span>
         );
-      } else {
-        // We should never reach this point.
-        return (
-          <Fragment key={getRandomKey()}>
-            <span>Something went wrong while running {programName}:</span>
-            <b>{String(e)}</b>
-          </Fragment>
-        );
       }
+      // We should never reach this point, but just in case...
+      return (
+        <Fragment key={getRandomKey()}>
+          <span>Something went wrong while running {programName}:</span>
+          <b>{String(e)}</b>
+        </Fragment>
+      );
     }
   } catch (e) {
     return (
