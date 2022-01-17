@@ -119,6 +119,7 @@ function parseArgs(args: string): Set<string> {
       options.add(section.substring(2));
     } else if (section.startsWith('-')) {
       // This section is a short-form one, like '-f'.
+
       for (let i = 1; i < section.length; i++) {
         const curChar = section.charAt(i);
         // Don't allow rogue '-' chars in the middle of a section, like '-fo-o'.
