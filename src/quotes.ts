@@ -109,4 +109,7 @@ export const quotes: Quote[] = [
   {
     text: 'Automation was developed to free the rich from the working class, not to free the working class from the drudgeries of work.',
   },
+  {
+    text: 'Too many people will judge a disruptive innovation based on initial iterations of the idea.',
+  },
 ];
