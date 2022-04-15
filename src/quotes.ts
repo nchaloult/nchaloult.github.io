@@ -66,14 +66,6 @@ export const quotes: Quote[] = [
     author: 'Fernand Braudel',
   },
   {
-    text: 'Much still remains to do, and much will always remain, and the one who shall be born a thousand years hence will not be barred from this opportunity of adding something further.',
-    author: 'Seneca, translated by R. M. Gummere',
-    source: {
-      text: 'https://www.stoictherapy.com/resources-epistles#64',
-      isAURL: true,
-    },
-  },
-  {
     text: 'Program testing can be a very effective way to show the presence of bugs, but it is hopelessly inadequate for showing their absence.',
     author: 'Edsger Dijkstra',
     source: {
