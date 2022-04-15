@@ -112,4 +112,12 @@ export const quotes: Quote[] = [
   {
     text: 'Too many people will judge a disruptive innovation based on initial iterations of the idea.',
   },
+  {
+    text: 'Automation is the serialization of understanding.',
+    author: 'Kelsey Hightower',
+    source: {
+      text: 'https://changelog.com/posts/automation-is-the-serialization-of-understanding',
+      isAURL: true,
+    },
+  },
 ];
