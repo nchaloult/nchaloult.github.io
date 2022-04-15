@@ -82,10 +82,6 @@ export const quotes: Quote[] = [
     },
   },
   {
-    text: 'Seek solutions based on your own scrutiny, regardless of whether it produces what has been found before. There are often several ways to solve a given problem.',
-    author: 'Ralph P. Grimaldi',
-  },
-  {
     text: 'Any sufficiently advanced technology is indistinguishable from magic.',
     author: 'Arthur C. Clarke',
   },
