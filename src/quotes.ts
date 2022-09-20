@@ -112,4 +112,12 @@ export const quotes: Quote[] = [
     text: 'If you are neutral in situations of injustice, you have chosen the side of the oppressor.',
     author: 'Desmond Tutu',
   },
+  {
+    text: "'How do I test X?' is almost always answered with 'by controlling X.'",
+    author: 'Jake Goulding (Shepmaster)',
+    source: {
+      text: 'https://berk.es/2022/09/19/test-x-by-controlling-x/',
+      isAURL: true,
+    },
+  },
 ];
