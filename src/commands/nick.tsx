@@ -96,10 +96,10 @@ export default class Nick implements Program {
   private getLinkedInOptionContent(): JSX.Element {
     return (
       <a
-        href="https://linkedin.com/in/nicholas-chaloult"
+        href="https://linkedin.com/in/nchaloult"
         target="_blank"
         rel="noopener noreferrer">
-        https://linkedin.com/in/nicholas-chaloult
+        https://linkedin.com/in/nchaloult
       </a>
     );
   }
