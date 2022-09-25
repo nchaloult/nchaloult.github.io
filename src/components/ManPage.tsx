@@ -15,8 +15,8 @@ function ManPage() {
         <div>
           <b>NAME</b>
           <div className={styles.indented}>
-            <b>nick</b> -- a Computer Science graduate from Georgia Tech who is
-            eager to learn about new technologies and best practices
+            <b>nick</b> -- a Computer Science graduate and Software Engineer who
+            is eager to learn about new technologies and best practices
           </div>
         </div>
         <div>
