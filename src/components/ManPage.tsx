@@ -30,10 +30,10 @@ function ManPage() {
           <b>DESCRIPTION</b>
           <div className={styles.indented}>
             <b>nick</b> enjoys discovering better ways to write maintainable
-            software. Currently interested in Rust, consensus algorithms,
-            distributed systems, and free and open-source projects.
-            Concentrations in school were Intelligence (AI & ML) and Information
-            and Internetworks (database technologies).
+            software. Currently interested in Rust, distributed systems,
+            maintainable and testable software, and free and open-source
+            projects. Concentrations in school were Intelligence (AI & ML) and
+            Information and Internetworks (database technologies).
           </div>
         </div>
         <div>
