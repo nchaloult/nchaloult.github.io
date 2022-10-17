@@ -120,4 +120,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "One of the most irritating things programmers do regularly is feel so good about learning a hard thing that they don't look for ways to to make it easy, or even oppose things that would do so.",
+    author: 'Peter Bhat Harkins (@pushcx)',
+    source: {
+      text: 'https://twitter.com/pushcx/status/1566843542990880768',
+      isAURL: true,
+    },
+  },
 ];
