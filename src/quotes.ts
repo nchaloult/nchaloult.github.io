@@ -136,4 +136,8 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: 'The surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.',
+    author: 'Bill Watterson',
+  },
 ];
