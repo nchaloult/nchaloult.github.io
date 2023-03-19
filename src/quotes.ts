@@ -140,4 +140,8 @@ export const quotes: Quote[] = [
     text: 'The surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.',
     author: 'Bill Watterson',
   },
+  {
+    text: 'Growth for the sake of growth is the ideology of the cancer cell.',
+    author: 'Edward Abbey',
+  },
 ];
