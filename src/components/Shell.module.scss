@@ -5,17 +5,11 @@
 }
 
 #outer_container {
-  display: flex;
-  flex: 1;
+  overflow: auto;
   padding: $container-padding;
-
-  @media screen and (max-width: $mobile-screen-width) {
-    height: 50vh;
-  }
 }
 
 #inner_container {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
 }

@@ -1,11 +1,23 @@
 @import '../variables.scss';
 
 #container {
-  display: flex;
-  height: 100vh;
+  display: grid;
+  max-height: 100vh;
+  max-height: -webkit-fill-available;
 
+  @media screen and (min-width: $mobile-screen-width) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    > div {
+      max-height: 100vh;
+    }
+  }
   @media screen and (max-width: $mobile-screen-width) {
-    flex-direction: column;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+
+    > div {
+      max-height: 50vh;
+    }
 
     > div:first-child {
       border-bottom: 4px solid $lighter-background;

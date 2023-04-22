@@ -15,15 +15,10 @@
 
 #container {
   display: flex;
-  flex: 1;
   flex-direction: column;
   row-gap: 2rem;
   padding: $container-padding;
-  overflow-y: auto;
-
-  @media screen and (max-width: $mobile-screen-width) {
-    height: 50vh;
-  }
+  overflow: auto;
 }
 
 #content {
