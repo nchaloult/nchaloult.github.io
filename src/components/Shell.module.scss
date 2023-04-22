@@ -5,6 +5,12 @@
 }
 
 #outer_container {
+  // Needed so that HintOnMobile's width and height respect this container's
+  // dimensions. Without it, HintOnMobile's absolute position and width and
+  // height of 100% would cause it to fill the viewport -- not its parent
+  // container.
+  position: relative;
+
   overflow: auto;
   padding: $container-padding;
 }

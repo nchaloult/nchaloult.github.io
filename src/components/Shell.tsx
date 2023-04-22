@@ -5,11 +5,15 @@ import { parseCommand } from '../commands';
 import { flushSync } from 'react-dom';
 import PromptPrefix from './PromptPrefix';
 import { getRandomKey } from '../utils';
+import { isMobile } from 'react-device-detect';
+import HintOnMobile from './HintOnMobile';
 
-type DivProps = React.HTMLProps<HTMLDivElement>;
+type Props = {
+  isHintOnMobileVisible: boolean;
+};
 
 // eslint-disable-next-line react/display-name
-const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
+const Shell = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
   const innerContainerRef = useRef<HTMLDivElement>(null);
   const [prevLines, setPrevLines] = useState<JSX.Element[]>([
     <span key={getRandomKey()}>
@@ -65,6 +69,7 @@ const Shell = React.forwardRef<HTMLDivElement, DivProps>((_props, ref) => {
       <div ref={innerContainerRef} id={styles.inner_container}>
         {prevLines}
         <Prompt sendCommandToShell={handleNewCommand} />
+        {props.isHintOnMobileVisible && isMobile && <HintOnMobile />}
       </div>
     </div>
   );
