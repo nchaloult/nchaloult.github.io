@@ -156,4 +156,12 @@ export const quotes: Quote[] = [
     text: "I think everybody should get rich and famous and do everything they ever dreamed of so they can see that it's not the answer.",
     author: 'Jim Carrey',
   },
+  {
+    text: 'Learning is not memorizing information; learning is changing your behavior.',
+    author: 'David Senra',
+    source: {
+      text: 'https://www.founderspodcast.com/episodes/37366244/senra-329-charlie-munger-the-new-poor-charlies-almanack',
+      isAURL: true,
+    },
+  },
 ];
