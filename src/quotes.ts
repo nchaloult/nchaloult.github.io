@@ -164,4 +164,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: 'Your mediocrity is my opportunity.',
+    author: 'David Senra',
+    source: {
+      text: 'https://www.founderspodcast.com/episodes/80362533/catmull-ed-catmull-creativity-inc',
+      isAURL: true,
+    },
+  },
 ];
