@@ -1,13 +1,17 @@
-export type Quote = {
+export interface Quote {
   text: string;
   author?: string;
   source?: Source;
-};
+}
 
 type Source = {
   text: string;
   isAURL: boolean;
 };
+
+export interface NumberedQuote extends Quote {
+  num: number;
+}
 
 export const quotes: Quote[] = [
   {

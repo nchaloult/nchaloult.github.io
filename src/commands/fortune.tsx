@@ -1,21 +1,28 @@
 import React, { Fragment } from 'react';
 import { AcceptsNoArgsError, Program } from '.';
-import { Quote, quotes } from '../quotes';
+import { NumberedQuote, quotes } from '../quotes';
 import { getRandomKey } from '../utils';
 import styles from './Fortune.module.scss';
 
 export default class Fortune implements Program {
-  private quotes: Quote[];
+  private quotes: NumberedQuote[];
   private curQuoteIdx = 0;
 
   constructor() {
+    // Add an incrementing integer ID to each quote according to their order in
+    // src/quotes.ts. Done here instead of manually inside each member of
+    // src/quotes.ts's quotes array.
+    const numberedQuotes: NumberedQuote[] = quotes.map((quote, i) => ({
+      num: i + 1,
+      ...quote,
+    }));
     // Instead of picking a random quote from the array of quotes each time this
     // program is run, it shuffles that array on page load. Each subsequent time
     // it's run, it outputs the next quote in the array.
     //
     // This makes the user experience better: you won't see the same quote more
     // than once until you've seen all of them.
-    this.quotes = quotes;
+    this.quotes = numberedQuotes;
     shuffle(this.quotes);
   }
 
@@ -39,6 +46,10 @@ export default class Fortune implements Program {
     }
     return (
       <Fragment key={getRandomKey()}>
+        <span id={styles.quote_number}>
+          &#40;Quote &#35;{quote.num} of {this.quotes.length}&#41;
+        </span>
+
         <span>&quot;{quote.text}&quot;</span>
 
         {quote.author && <span id={styles.author}>- {quote.author}</span>}
