@@ -172,4 +172,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "...[F]ar from being contradictory, being demanding and supportive are inextricably linked. It's the way you are when you believe in someone more than they believe in themselves.",
+    author: 'Ravi Gupta',
+    source: {
+      text: 'https://www.rkg.blog/demanding.php',
+      isAURL: true,
+    },
+  },
 ];
