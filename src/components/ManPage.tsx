@@ -29,11 +29,11 @@ function ManPage() {
         <div>
           <b>DESCRIPTION</b>
           <div className={styles.indented}>
-            <b>nick</b> enjoys discovering better ways to write maintainable
-            software. Currently interested in Rust, distributed systems,
-            maintainable and testable software, and free and open-source
-            projects. Concentrations in school were Intelligence (AI & ML) and
-            Information and Internetworks (database technologies).
+            <b>nick</b> enjoys discovering better ways to write maintainable and
+            testable software, learning from folks who have done it at scale.
+            Currently interested in spending time with his children, distributed
+            consensus algorithms (Raft), and systems testing tools (Jepsen).
+            Concentrations in school were AI & ML and database technologies.
           </div>
         </div>
         <div>
