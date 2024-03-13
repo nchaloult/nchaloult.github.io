@@ -87,8 +87,8 @@ export default class Nick implements Program {
   private getInterestsOptionContent(): JSX.Element {
     return (
       <span>
-        Spending time with his children, distributed consensus algorithms
-        (Raft), systems testing tools (Jepsen)
+        Spending time with his children, consensus algorithms (Raft),
+        distributed systems testing tools (Jepsen)
       </span>
     );
   }
