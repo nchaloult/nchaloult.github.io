@@ -184,4 +184,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "There is this special biologist word we use for 'stable'. It is 'dead'.",
+    author: 'Jack Cohen (h/t Jarkko Hietaniemi)',
+    source: {
+      text: 'https://www.nntp.perl.org/group/perl.perl5.porters/2005/01/msg97885.html',
+      isAURL: true,
+    },
+  },
 ];
