@@ -117,14 +117,6 @@ export const quotes: Quote[] = [
     author: 'Desmond Tutu',
   },
   {
-    text: "'How do I test X?' is almost always answered with 'by controlling X.'",
-    author: 'Jake Goulding (Shepmaster)',
-    source: {
-      text: 'https://berk.es/2022/09/19/test-x-by-controlling-x/',
-      isAURL: true,
-    },
-  },
-  {
     text: "One of the most irritating things programmers do regularly is feel so good about learning a hard thing that they don't look for ways to to make it easy, or even oppose things that would do so.",
     author: 'Peter Bhat Harkins (@pushcx)',
     source: {
