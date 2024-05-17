@@ -180,4 +180,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "'The reward for good work is more work.' I want to hang out with the kind of person who nods and smiles in excitement when they hear this.",
+    author: "Kevin Kelly (h/t Patrick O'Shaughnessy)",
+    source: {
+      text: 'https://www.joincolossus.com/episodes/79714195/giffon-special-situations-in-private-markets',
+      isAURL: true,
+    },
+  },
 ];
