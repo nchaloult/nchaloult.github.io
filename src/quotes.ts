@@ -81,10 +81,10 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
-  {
-    text: 'Any sufficiently advanced technology is indistinguishable from magic.',
-    author: 'Arthur C. Clarke',
-  },
+  // {
+  //   text: 'Any sufficiently advanced technology is indistinguishable from magic.',
+  //   author: 'Arthur C. Clarke',
+  // },
   {
     text: 'From a software maintenance perspective there is little consensus on how to organize ML projects. It feels like websites before Rails came out: a bunch of random PHP scripts with an unholy mixture of business logic and markup sprinkled throughout.',
     author: 'Ryan Dahl',
