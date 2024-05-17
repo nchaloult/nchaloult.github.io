@@ -57,10 +57,10 @@ export const quotes: Quote[] = [
       isAURL: false,
     },
   },
-  {
-    text: 'A city is a large community where people are lonesome together.',
-    author: 'Herbert V. Prochnow',
-  },
+  // {
+  //   text: 'A city is a large community where people are lonesome together.',
+  //   author: 'Herbert V. Prochnow',
+  // },
   {
     text: 'Every kid starts out as a natural-born scientist, and then we beat it out of them. A few trickle through the system with their wonder and enthusiasm for science intact.',
     author: 'Carl Sagan',
