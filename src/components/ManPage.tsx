@@ -15,7 +15,7 @@ function ManPage() {
         <div>
           <b>NAME</b>
           <div className={styles.indented}>
-            <b>nick</b> -- a Computer Science graduate and Software Engineer who
+            <b>nick</b> -- a Software Engineer and Computer Science graduate who
             is eager to learn about new technologies and best practices
           </div>
         </div>
@@ -31,9 +31,12 @@ function ManPage() {
           <div className={styles.indented}>
             <b>nick</b> enjoys discovering better ways to write maintainable and
             testable software, learning from folks who have done it at scale.
-            Currently interested in spending time with his children, consensus
-            algorithms (Raft), and distributed systems testing tools (Jepsen).
-            Concentrations in school were AI & ML and database technologies.
+            Currently interested in consensus algorithms (Raft), and distributed
+            systems testing tools (Jepsen). Concentrations in school were AI &
+            machine learning, and database management system internals.
+          </div>
+          <div className={`${styles.indented} ${styles.new_paragraph}`}>
+            <b>nick</b> is a proud father and stepfather.
           </div>
         </div>
         <div>
