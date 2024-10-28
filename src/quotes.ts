@@ -192,4 +192,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: '...[M]ost of the freedom I had before kids, I never used. I paid for it in loneliness, but I never used it.',
+    author: 'Paul Graham',
+    source: {
+      text: 'https://www.paulgraham.com/kids.html',
+      isAURL: true,
+    },
+  },
 ];
