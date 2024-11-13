@@ -140,14 +140,14 @@ export const quotes: Quote[] = [
     text: 'Growth for the sake of growth is the ideology of the cancer cell.',
     author: 'Edward Abbey',
   },
-  {
-    text: 'Water is wet, taxes are inevitable, and undoubtedly someone will use a hammer to pound in a screw.',
-    author: 'Timothy St. Clair (@timothysc)',
-    source: {
-      text: 'https://twitter.com/timothysc/status/1671620783406305286?s=20',
-      isAURL: true,
-    },
-  },
+  // {
+  //   text: 'Water is wet, taxes are inevitable, and undoubtedly someone will use a hammer to pound in a screw.',
+  //   author: 'Timothy St. Clair (@timothysc)',
+  //   source: {
+  //     text: 'https://twitter.com/timothysc/status/1671620783406305286?s=20',
+  //     isAURL: true,
+  //   },
+  // },
   {
     text: "I think everybody should get rich and famous and do everything they ever dreamed of so they can see that it's not the answer.",
     author: 'Jim Carrey',
