@@ -45,10 +45,10 @@ export const quotes: Quote[] = [
     text: 'The most violent element in society is ignorance.',
     author: 'Emma Goldman',
   },
-  {
-    text: 'There are two hard things in Computer Science: cache invalidation and naming things.',
-    author: 'Phil Karlton',
-  },
+  // {
+  //   text: 'There are two hard things in Computer Science: cache invalidation and naming things.',
+  //   author: 'Phil Karlton',
+  // },
   {
     text: "We don't really celebrate the accomplishments of government employees. They exist in our society to take the blame.",
     author: 'Michael Lewis',
