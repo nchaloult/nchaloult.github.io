@@ -77,14 +77,14 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
-  {
-    text: 'Do not communicate by sharing memory; instead, share memory by communicating.',
-    author: 'Effective Go',
-    source: {
-      text: 'https://golang.org/doc/effective_go.html#concurrency',
-      isAURL: true,
-    },
-  },
+  // {
+  //   text: 'Do not communicate by sharing memory; instead, share memory by communicating.',
+  //   author: 'Effective Go',
+  //   source: {
+  //     text: 'https://golang.org/doc/effective_go.html#concurrency',
+  //     isAURL: true,
+  //   },
+  // },
   // {
   //   text: 'Any sufficiently advanced technology is indistinguishable from magic.',
   //   author: 'Arthur C. Clarke',
