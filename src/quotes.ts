@@ -98,9 +98,9 @@ export const quotes: Quote[] = [
     text: 'We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins.',
     author: 'Ellen Ullman',
   },
-  {
-    text: 'Automation was developed to free the rich from the working class, not to free the working class from the drudgeries of work.',
-  },
+  // {
+  //   text: 'Automation was developed to free the rich from the working class, not to free the working class from the drudgeries of work.',
+  // },
   {
     text: 'Too many people will judge a disruptive innovation based on initial iterations of the idea.',
   },
