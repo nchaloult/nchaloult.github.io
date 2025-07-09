@@ -31,9 +31,10 @@ function ManPage() {
           <div className={styles.indented}>
             <b>nick</b> enjoys discovering better ways to write maintainable and
             testable software, learning from folks who have done it at scale.
-            Currently interested in consensus algorithms (Raft), and distributed
-            systems testing tools (Jepsen). Concentrations in school were AI &
-            machine learning, and database management system internals.
+            Currently interested in consensus algorithms (Raft), distributed
+            systems testing tools (Jepsen), and new version control systems
+            (jj). Concentrations in school were AI & machine learning, and
+            database management system internals.
           </div>
           <div className={`${styles.indented} ${styles.new_paragraph}`}>
             <b>nick</b> is a proud father and stepfather.

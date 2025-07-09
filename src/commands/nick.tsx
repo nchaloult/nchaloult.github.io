@@ -88,7 +88,8 @@ export default class Nick implements Program {
     return (
       <span>
         Spending time with his children, consensus algorithms (Raft),
-        distributed systems testing tools (Jepsen)
+        distributed systems testing tools (Jepsen), new version control
+        systems (jj)
       </span>
     );
   }
