@@ -86,11 +86,33 @@ export default class Nick implements Program {
 
   private getInterestsOptionContent(): JSX.Element {
     return (
-      <span>
-        Spending time with his children, consensus algorithms (Raft),
-        distributed systems testing tools (Jepsen), new version control
-        systems (jj)
-      </span>
+      <Fragment>
+        <span>Spending time with his children</span>
+        <span>Systems programming (
+          <a
+            href="https://nycsystems.xyz"
+            target="_blank"
+            rel="noopener noreferrer">
+            https://nycsystems.xyz
+          </a>
+        )</span>
+        <span>Distributed systems testing tools (
+          <a
+            href="https://jepsen.io/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Jepsen
+          </a>
+        )</span>
+        <span>New version control systems (
+          <a
+            href="https://jj-vcs.github.io"
+            target="_blank"
+            rel="noopener noreferrer">
+            jj
+          </a>
+        )</span>
+      </Fragment>
     );
   }
 

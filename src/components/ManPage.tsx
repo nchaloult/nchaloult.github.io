@@ -30,11 +30,36 @@ function ManPage() {
           <b>DESCRIPTION</b>
           <div className={styles.indented}>
             <b>nick</b> enjoys discovering better ways to write maintainable and
-            testable software, learning from folks who have done it at scale.
-            Currently interested in consensus algorithms (Raft), distributed
-            systems testing tools (Jepsen), and new version control systems
-            (jj). Concentrations in school were AI & machine learning, and
-            database management system internals.
+            testable software, learning from folks who have done it at scale. He
+            enjoys hacking on every layer of the stack, from designing
+            cloud-native architectures, to tuning databases, to designing and
+            building web frontends. He loves the process of learning how
+            computers work.
+          </div>
+          <div className={`${styles.indented} ${styles.new_paragraph}`}>
+            Currently interested in systems programming (
+            <a
+              href="https://nycsystems.xyz"
+              target="_blank"
+              rel="noopener noreferrer">
+              https://nycsystems.xyz
+            </a>
+            ), distributed systems testing tools (
+            <a
+              href="https://jepsen.io/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Jepsen
+            </a>
+            ), and new version control systems (
+            <a
+              href="https://jj-vcs.github.io"
+              target="_blank"
+              rel="noopener noreferrer">
+              jj
+            </a>
+            ). Concentrations in school were AI & machine learning, and database
+            management system internals.
           </div>
           <div className={`${styles.indented} ${styles.new_paragraph}`}>
             <b>nick</b> is a proud father and stepfather.
