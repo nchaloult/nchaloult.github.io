@@ -1,5 +1,46 @@
-# [nchaloult.com](https://nchaloult.com)
+# Astro Starter Kit: Basics
 
-My personal website/link hub. Inspired by [shells](https://en.wikipedia.org/wiki/Unix_shell) and [man pages](https://en.wikipedia.org/wiki/Man_page). Color scheme is based off of [gruvbox dark](https://github.com/morhetz/gruvbox).
+```sh
+npm create astro@latest -- --template basics
+```
 
-![nchaloult.com landing page](https://user-images.githubusercontent.com/31291920/149075489-7364ab93-5d61-4c06-b13c-793066e91f58.png)
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
+
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
