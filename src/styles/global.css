@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+  /* Gruvbox dark */
+  --color-gruvbox-background: #282828;
+  --color-gruvbox-light-background: #35312f;
+  --color-gruvbox-text: #ebdbb2;
+  --color-gruvbox-green: #83b871;
+  --color-gruvbox-teal: #779b8d;
+  --color-gruvbox-yellow: #d18f1e;
+  --color-gruvbox-gray: #928374;
+}
+
+body {
+  @apply bg-gruvbox-background text-gruvbox-text selection:bg-gruvbox-green/25;
+}
+
+a {
+  @apply underline text-gruvbox-yellow;
+}
