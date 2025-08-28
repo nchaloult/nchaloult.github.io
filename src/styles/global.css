@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --font-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 
   /* Gruvbox dark */
   --color-gruvbox-background: #282828;
@@ -14,7 +14,7 @@
 }
 
 body {
-  @apply bg-gruvbox-background text-gruvbox-text selection:bg-gruvbox-green/25;
+  @apply bg-gruvbox-background text-gruvbox-text selection:bg-gruvbox-green/25 font-mono;
 }
 
 a {
