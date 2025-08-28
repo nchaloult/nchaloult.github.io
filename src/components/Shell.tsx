@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type JSX } from "react";
 import { flushSync } from "react-dom";
+import { getRandomKey } from "../utils";
 
 function Prompt() {
   return <b className="text-gruvbox-green">guest@nchaloult.com:~$</b>;
@@ -57,7 +58,7 @@ function InputLine(props: InputLineProps) {
 export default function Shell() {
   const containerRef = useRef<HTMLElement>(null);
   const [stdout, setStdout] = useState<JSX.Element[]>([
-    <span>
+    <span key={getRandomKey()}>
       Type <b className="text-gruvbox-teal">help</b>, then press Enter, for
       available commands.
     </span>,
@@ -93,7 +94,7 @@ export default function Shell() {
 
   function handleCommand(cmd: string): void {
     const cmdWithPrompt = (
-      <div className="flex space-x-2">
+      <div key={getRandomKey()} className="flex space-x-2">
         <Prompt />
         <span>{cmd}</span>
       </div>
@@ -115,7 +116,7 @@ export default function Shell() {
       changeStdout([
         ...stdout,
         cmdWithPrompt,
-        <span>Parsing command: '{cmd}'...</span>,
+        <span key={getRandomKey()}>Parsing command: '{cmd}'...</span>,
       ]);
     }
   }
