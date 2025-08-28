@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { Program } from '.';
-import { getRandomKey } from '../utils';
+import { Fragment, type JSX } from "react";
+import type { Program } from ".";
+import { getRandomKey } from "../utils";
 
 export default class Nick implements Program {
   run(options: Set<string>): JSX.Element {
@@ -13,31 +13,31 @@ export default class Nick implements Program {
     // return from run() early in some cases.
     for (const option of Array.from(options)) {
       switch (option) {
-        case 'a':
-        case 'all':
+        case "a":
+        case "all":
           lines.push(this.getEmailOptionContent());
           lines.push(this.getGithubOptionContent());
           lines.push(this.getLinkedInOptionContent());
           lines.push(this.getResumeOptionContent());
           break;
-        case 'e':
-        case 'email':
+        case "e":
+        case "email":
           lines.push(this.getEmailOptionContent());
           break;
-        case 'g':
-        case 'github':
+        case "g":
+        case "github":
           lines.push(this.getGithubOptionContent());
           break;
-        case 'i':
-        case 'interests':
+        case "i":
+        case "interests":
           lines.push(this.getInterestsOptionContent());
           break;
-        case 'l':
-        case 'linkedin':
+        case "l":
+        case "linkedin":
           lines.push(this.getLinkedInOptionContent());
           break;
-        case 'r':
-        case 'resume':
+        case "r":
+        case "resume":
           lines.push(this.getResumeOptionContent());
           break;
         default: {
@@ -78,7 +78,8 @@ export default class Nick implements Program {
       <a
         href="https://github.com/nchaloult"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         https://github.com/nchaloult
       </a>
     );
@@ -88,30 +89,39 @@ export default class Nick implements Program {
     return (
       <Fragment>
         <span>Spending time with his children</span>
-        <span>Systems programming (
+        <span>
+          Systems programming (
           <a
             href="https://nycsystems.xyz"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+          >
             https://nycsystems.xyz
           </a>
-        )</span>
-        <span>Distributed systems testing tools (
+          )
+        </span>
+        <span>
+          Distributed systems testing tools (
           <a
             href="https://jepsen.io/"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+          >
             Jepsen
           </a>
-        )</span>
-        <span>New version control systems (
+          )
+        </span>
+        <span>
+          New version control systems (
           <a
             href="https://jj-vcs.github.io"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+          >
             jj
           </a>
-        )</span>
+          )
+        </span>
       </Fragment>
     );
   }
@@ -121,7 +131,8 @@ export default class Nick implements Program {
       <a
         href="https://linkedin.com/in/nchaloult"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         https://linkedin.com/in/nchaloult
       </a>
     );
@@ -133,7 +144,8 @@ export default class Nick implements Program {
         // TODO: Make this more modular or easy to change in the future.
         href={`${process.env.PUBLIC_URL}/resume.pdf`}
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         Click to view resume
       </a>
     );

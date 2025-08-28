@@ -1,8 +1,13 @@
-import React, { Fragment } from 'react';
-import { AcceptsNoArgsError, Program } from '.';
-import { NumberedQuote, quotes } from '../quotes';
-import { getRandomKey } from '../utils';
-import styles from './Fortune.module.scss';
+import { type JSX } from "react";
+import { AcceptsNoArgsError, type Program } from ".";
+// Importing the quotes array here, and and using it in the constructor, instead
+// of lazy-loading right before it's used, to make this `fortune` command feel
+// as responsive as possible. The quotes array is tiny, and so it ships over
+// the wire fast. Also, since the Shell component is hydrated on the client
+// side (it has the `client:load` directive on it), eager loading this quotes
+// array won't affect the time to first byte.
+import { quotes, type NumberedQuote } from "../quotes";
+import { getRandomKey } from "../utils";
 
 export default class Fortune implements Program {
   private quotes: NumberedQuote[];
@@ -45,18 +50,20 @@ export default class Fortune implements Program {
       sourceContent = <span>{quote.source.text}</span>;
     }
     return (
-      <Fragment key={getRandomKey()}>
-        <span id={styles.quote_number}>
+      <div key={getRandomKey()} className="flex flex-col">
+        <span className="text-gruvbox-gray">
           &#40;Quote &#35;{quote.num} of {this.quotes.length}&#41;
         </span>
 
         <span>&quot;{quote.text}&quot;</span>
 
-        {quote.author && <span id={styles.author}>- {quote.author}</span>}
-        {!quote.author && <span id={styles.author}>- Unknown</span>}
+        {quote.author && (
+          <span className="text-gruvbox-teal">- {quote.author}</span>
+        )}
+        {!quote.author && <span className="text-gruvbox-teal">- Unknown</span>}
 
         {sourceContent}
-      </Fragment>
+      </div>
     );
   }
 }

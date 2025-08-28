@@ -1,4 +1,5 @@
-import { AcceptsNoArgsError, Program } from '.';
+import type { JSX } from "react";
+import { AcceptsNoArgsError, type Program } from ".";
 
 // This program only needs to be here so that if somebody tries to invoke it
 // with options, the proper error message is displayed ("clear doesn't accept

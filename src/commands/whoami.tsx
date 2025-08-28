@@ -1,6 +1,6 @@
-import React from 'react';
-import { AcceptsNoArgsError, Program } from '.';
-import { getRandomKey } from '../utils';
+import type { JSX } from "react";
+import { AcceptsNoArgsError, type Program } from ".";
+import { getRandomKey } from "../utils";
 
 export default class Whoami implements Program {
   run(options: Set<string>): JSX.Element {

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type JSX } from "react";
 import { flushSync } from "react-dom";
 import { getRandomKey } from "../utils";
+import { parseCommand } from "../commands";
 
 function Prompt() {
   return <b className="text-gruvbox-green">guest@nchaloult.com:~$</b>;
@@ -112,12 +113,7 @@ export default function Shell() {
       // might mean I'd have to revisit the way I'm doing a lot of stuff...
       changeStdout([]);
     } else {
-      // changeStdout([...stdout, cmdWithPrompt, parseCommand(cmd)]);
-      changeStdout([
-        ...stdout,
-        cmdWithPrompt,
-        <span key={getRandomKey()}>Parsing command: '{cmd}'...</span>,
-      ]);
+      changeStdout([...stdout, cmdWithPrompt, parseCommand(cmd)]);
     }
   }
 

@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
-import { AcceptsNoArgsError, Program } from '.';
-import { getRandomKey } from '../utils';
-import styles from './Help.module.scss';
+import { Fragment, type JSX } from "react";
+import { AcceptsNoArgsError, type Program } from ".";
+import { getRandomKey } from "../utils";
 
 export default class Help implements Program {
   run(options: Set<string>): JSX.Element {
@@ -14,12 +13,12 @@ export default class Help implements Program {
         <b>How to Use Commands</b>
         <b>===================</b>
         <span>
-          Type <b className={styles.highlighted}>nick -a</b>, then press Enter.
+          Type <b className="text-gruvbox-teal">nick -a</b>, then press Enter.
         </span>
         <br />
         <span>
-          <b className={styles.highlighted}>nick</b> is the program you&apos;re
-          invoking, and <b className={styles.highlighted}>-a</b> is an option
+          <b className="text-gruvbox-teal">nick</b> is the program you&apos;re
+          invoking, and <b className="text-gruvbox-teal">-a</b> is an option
           that sends specific instructions to that program.
         </span>
         <br />
@@ -27,11 +26,11 @@ export default class Help implements Program {
           You can provide more than one option at a time. Try running:
         </span>
         <span>
-          &nbsp;&nbsp;- <b className={styles.highlighted}>nick -egl</b>
+          &nbsp;&nbsp;- <b className="text-gruvbox-teal">nick -egl</b>
         </span>
         <span>
-          &nbsp;&nbsp;-{' '}
-          <b className={styles.highlighted}>nick --linkedin --resume</b>
+          &nbsp;&nbsp;-{" "}
+          <b className="text-gruvbox-teal">nick --linkedin --resume</b>
         </span>
         <span>&nbsp;&nbsp;- etc.</span>
         <br />
@@ -39,11 +38,11 @@ export default class Help implements Program {
         <b>==================</b>
         {/* TODO: Make this content dynamic based on the `programs` map in
         index.tsx */}
-        <b className={styles.highlighted}>clear</b>
-        <b className={styles.highlighted}>fortune</b>
-        <b className={styles.highlighted}>help</b>
-        <b className={styles.highlighted}>nick</b>
-        <b className={styles.highlighted}>whoami</b>
+        <b className="text-gruvbox-teal">clear</b>
+        <b className="text-gruvbox-teal">fortune</b>
+        <b className="text-gruvbox-teal">help</b>
+        <b className="text-gruvbox-teal">nick</b>
+        <b className="text-gruvbox-teal">whoami</b>
       </Fragment>
     );
   }

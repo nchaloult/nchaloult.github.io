@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import Clear from './clear';
-import Fortune from './fortune';
-import Help from './help';
-import Nick from './nick';
-import Whoami from './whoami';
-import { getRandomKey } from '../utils';
+import { Fragment, type JSX } from "react";
+import Clear from "./clear";
+import Fortune from "./fortune";
+import Help from "./help";
+import Nick from "./nick";
+import Whoami from "./whoami";
+import { getRandomKey } from "../utils";
 
 export class AcceptsNoArgsError extends Error {}
 
@@ -32,7 +32,7 @@ const programs: { [name: string]: Program } = {
 // Ex: cmd = "nick -a"
 export function parseCommand(cmd: string): JSX.Element {
   let programName = cmd;
-  const firstSpaceIdx = cmd.indexOf(' ');
+  const firstSpaceIdx = cmd.indexOf(" ");
   if (firstSpaceIdx !== -1) {
     programName = cmd.substring(0, firstSpaceIdx);
   }
@@ -46,7 +46,7 @@ export function parseCommand(cmd: string): JSX.Element {
     // No args were provided, but because firstSpaceIdx is -1, args is currently
     // equal to the program name. Passing that into the parseArgs() func would
     // mess things up.
-    args = '';
+    args = "";
   }
 
   try {
@@ -99,31 +99,31 @@ function parseArgs(args: string): Set<string> {
   // Ex: '-f'
   // Ex: '-fo'
   // Ex: '--foo'
-  const sections = args.split(' ');
+  const sections = args.split(" ");
   for (const section of sections) {
-    if (!section.startsWith('-') || section === '-' || section === '--') {
+    if (!section.startsWith("-") || section === "-" || section === "--") {
       throw new Error(section);
     }
 
-    if (section.startsWith('--')) {
+    if (section.startsWith("--")) {
       // This section is a long-form one, like '--foo'.
 
       for (let i = 2; i < section.length; i++) {
         // Don't allow rogue '-' chars in the middle of a section, like
         // '--fo-o'.
-        if (section.charAt(i) === '-') {
+        if (section.charAt(i) === "-") {
           throw new Error(section);
         }
       }
 
       options.add(section.substring(2));
-    } else if (section.startsWith('-')) {
+    } else if (section.startsWith("-")) {
       // This section is a short-form one, like '-f'.
 
       for (let i = 1; i < section.length; i++) {
         const curChar = section.charAt(i);
         // Don't allow rogue '-' chars in the middle of a section, like '-fo-o'.
-        if (curChar === '-') {
+        if (curChar === "-") {
           throw new Error(section);
         }
 
