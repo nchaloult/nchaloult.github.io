@@ -63,6 +63,18 @@ export default function Shell() {
     </span>,
   ]);
 
+  function checkForKeyboardShortcuts(e: KeyboardEvent) {
+    if (e.ctrlKey && e.key === "l") {
+      setStdout([]);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", checkForKeyboardShortcuts);
+    return () =>
+      document.removeEventListener("keydown", checkForKeyboardShortcuts);
+  }, []);
+
   // Helper function that wraps setStdout(). Auto-scrolls so that the newest
   // lines that are at the bottom of our container div are in view.
   function changeStdout(newStdout: JSX.Element[]) {
