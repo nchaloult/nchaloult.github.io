@@ -1,4 +1,4 @@
-import { Fragment, type JSX } from "react";
+import { type JSX } from "react";
 import { AcceptsNoArgsError, type Program } from ".";
 import { getRandomKey } from "../utils";
 
@@ -9,32 +9,30 @@ export default class Help implements Program {
     }
 
     return (
-      <Fragment key={getRandomKey()}>
+      <div key={getRandomKey()} className="flex flex-col">
         <b>How to Use Commands</b>
         <b>===================</b>
-        <span>
+        <p>
           Type <b className="text-gruvbox-teal">nick -a</b>, then press Enter.
-        </span>
-        <br />
-        <span>
+        </p>
+        <p className="mt-4">
           <b className="text-gruvbox-teal">nick</b> is the program you&apos;re
           invoking, and <b className="text-gruvbox-teal">-a</b> is an option
           that sends specific instructions to that program.
-        </span>
-        <br />
-        <span>
+        </p>
+        <p className="mt-4">
           You can provide more than one option at a time. Try running:
-        </span>
-        <span>
-          &nbsp;&nbsp;- <b className="text-gruvbox-teal">nick -egl</b>
-        </span>
-        <span>
-          &nbsp;&nbsp;-{" "}
-          <b className="text-gruvbox-teal">nick --linkedin --resume</b>
-        </span>
-        <span>&nbsp;&nbsp;- etc.</span>
-        <br />
-        <b>Available Programs</b>
+        </p>
+        <ul className="ml-8">
+          <li>
+            - <b className="text-gruvbox-teal">nick -egl</b>
+          </li>
+          <li>
+            - <b className="text-gruvbox-teal">nick --linkedin --resume</b>
+          </li>
+          <li>- etc.</li>
+        </ul>
+        <b className="mt-4">Available Programs</b>
         <b>==================</b>
         {/* TODO: Make this content dynamic based on the `programs` map in
         index.tsx */}
@@ -43,7 +41,7 @@ export default class Help implements Program {
         <b className="text-gruvbox-teal">help</b>
         <b className="text-gruvbox-teal">nick</b>
         <b className="text-gruvbox-teal">whoami</b>
-      </Fragment>
+      </div>
     );
   }
 }
