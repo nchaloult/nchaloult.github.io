@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Prompt() {
   return <b className="text-gruvbox-green">guest@nchaloult.com:~$</b>;
@@ -6,6 +6,18 @@ function Prompt() {
 
 function InputLine() {
   const [curInput, setCurInput] = useState("");
+
+  function checkForKeyboardShortcuts(e) {
+    if (e.ctrlKey && e.key === "u") {
+      setCurInput("");
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", checkForKeyboardShortcuts);
+    return () =>
+      document.removeEventListener("keydown", checkForKeyboardShortcuts);
+  }, []);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
