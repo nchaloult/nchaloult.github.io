@@ -61,16 +61,16 @@ export default class Nick implements Program {
     }
 
     return (
-      <Fragment key={getRandomKey()}>
+      <div key={getRandomKey()} className="flex flex-col">
         {lines.map((line) => (
           <Fragment key={getRandomKey()}>{line}</Fragment>
         ))}
-      </Fragment>
+      </div>
     );
   }
 
   private getEmailOptionContent(): JSX.Element {
-    return <span>npchaloult@gmail.com</span>;
+    return <p>npchaloult@gmail.com</p>;
   }
 
   private getGithubOptionContent(): JSX.Element {
@@ -88,8 +88,8 @@ export default class Nick implements Program {
   private getInterestsOptionContent(): JSX.Element {
     return (
       <Fragment>
-        <span>Spending time with his children</span>
-        <span>
+        <p>Spending time with his children</p>
+        <p>
           Systems programming (
           <a
             href="https://nycsystems.xyz"
@@ -99,8 +99,8 @@ export default class Nick implements Program {
             https://nycsystems.xyz
           </a>
           )
-        </span>
-        <span>
+        </p>
+        <p>
           Distributed systems testing tools (
           <a
             href="https://jepsen.io/"
@@ -110,8 +110,8 @@ export default class Nick implements Program {
             Jepsen
           </a>
           )
-        </span>
-        <span>
+        </p>
+        <p>
           New version control systems (
           <a
             href="https://jj-vcs.github.io"
@@ -121,7 +121,7 @@ export default class Nick implements Program {
             jj
           </a>
           )
-        </span>
+        </p>
       </Fragment>
     );
   }
@@ -140,12 +140,7 @@ export default class Nick implements Program {
 
   private getResumeOptionContent(): JSX.Element {
     return (
-      <a
-        // TODO: Make this more modular or easy to change in the future.
-        href={`${process.env.PUBLIC_URL}/resume.pdf`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
         Click to view resume
       </a>
     );
