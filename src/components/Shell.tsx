@@ -103,6 +103,13 @@ export default function Shell() {
       // If the user just pressed Enter and cmd is empty, mimic the behavior of
       // a real shell by just appending `cmdWithPrompt` to `stdout`.
       changeStdout([...stdout, cmdWithPrompt]);
+    } else if (cmd === "clear") {
+      // Handle the clear program's special behavior here since we have easy
+      // access to the `stdout` state here.
+      //
+      // TODO: Reevaluate this approach to implementing `clear`? Idk tho — that
+      // might mean I'd have to revisit the way I'm doing a lot of stuff...
+      changeStdout([]);
     } else {
       // changeStdout([...stdout, cmdWithPrompt, parseCommand(cmd)]);
       changeStdout([
