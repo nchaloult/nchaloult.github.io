@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type JSX } from "react";
+import { flushSync } from "react-dom";
 
 function Prompt() {
   return <b className="text-gruvbox-green">guest@nchaloult.com:~$</b>;
 }
 
-function InputLine() {
+type InputLineProps = {
+  handleCommand: (cmd: string) => void;
+};
+function InputLine(props: InputLineProps) {
   const [curInput, setCurInput] = useState("");
 
-  function checkForKeyboardShortcuts(e) {
+  function checkForKeyboardShortcuts(e: KeyboardEvent) {
     if (e.ctrlKey && e.key === "u") {
       setCurInput("");
     }
@@ -21,11 +25,12 @@ function InputLine() {
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    alert("submittin'");
+    props.handleCommand(curInput);
+    setCurInput("");
   }
 
   return (
-    <div className="flex space-x-2 items-baseline">
+    <div className="flex space-x-2">
       <Prompt />
       <form onSubmit={onSubmit} className="grow overflow-x-auto">
         <div className="relative">
@@ -50,9 +55,56 @@ function InputLine() {
 }
 
 export default function Shell() {
+  const containerRef = useRef<HTMLElement>(null);
+  const [stdout, setStdout] = useState<JSX.Element[]>([
+    <span>
+      Type <b className="text-gruvbox-teal">help</b>, then press Enter, for
+      available commands.
+    </span>,
+  ]);
+
+  // Helper function that wraps setStdout(). Auto-scrolls so that the newest
+  // lines that are at the bottom of our container div are in view.
+  function changeStdout(newStdout: JSX.Element[]) {
+    // Ensure that the DOM has been updated before considering whether to
+    // auto-scroll.
+    flushSync(() => setStdout(newStdout));
+
+    if (containerRef && containerRef.current) {
+      const lastChild = containerRef.current.lastElementChild;
+      lastChild?.scrollIntoView({
+        block: "end",
+        inline: "nearest",
+      });
+    }
+  }
+
+  function handleCommand(cmd: string): void {
+    const cmdWithPrompt = (
+      <div className="flex space-x-2">
+        <Prompt />
+        <span>{cmd}</span>
+      </div>
+    );
+
+    if (cmd === "") {
+      // If the user just pressed Enter and cmd is empty, mimic the behavior of
+      // a real shell by just appending `cmdWithPrompt` to `stdout`.
+      changeStdout([...stdout, cmdWithPrompt]);
+    } else {
+      // changeStdout([...stdout, cmdWithPrompt, parseCommand(cmd)]);
+      changeStdout([
+        ...stdout,
+        cmdWithPrompt,
+        <span>Parsing command: '{cmd}'...</span>,
+      ]);
+    }
+  }
+
   return (
-    <section>
-      <InputLine />
+    <section ref={containerRef} className="overflow-y-auto">
+      {stdout}
+      <InputLine handleCommand={handleCommand} />
     </section>
   );
 }
