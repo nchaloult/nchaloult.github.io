@@ -224,7 +224,7 @@ export default function Shell() {
       ref={containerRef}
       className={`flex flex-col overflow-y-auto ${
         isMobile && isHintOnMobileVisible
-          ? "bg-white/10 border-4 border-gruvbox-teal"
+          ? "bg-white/10 outline-4 outline-gruvbox-teal"
           : ""
       }`}
     >
