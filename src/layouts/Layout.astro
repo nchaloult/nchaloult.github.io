@@ -1,4 +1,7 @@
 ---
+import "@fontsource/jetbrains-mono";
+import jetbrainsMono400 from "@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2?url";
+import jetbrainsMono700 from "@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2?url";
 import "../styles/global.css";
 ---
 
@@ -13,6 +16,22 @@ import "../styles/global.css";
 
     <title>Nick Chaloult</title>
     <meta name="description" content="Nick Chaloult's personal site" />
+
+    <!-- Prefetching fonts -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={jetbrainsMono400}
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={jetbrainsMono700}
+      crossorigin="anonymous"
+    />
 
     <!-- Open Graph tags -->
     <meta property="og:title" content="Nick Chaloult" />

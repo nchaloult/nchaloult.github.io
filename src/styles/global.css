@@ -1,7 +1,10 @@
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
 @import "tailwindcss";
 
 @theme {
-  --font-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --font-mono: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 
   /* Gruvbox dark */
   --color-gruvbox-background: #282828;
@@ -18,5 +21,5 @@ body {
 }
 
 a {
-  @apply underline text-gruvbox-yellow;
+  @apply underline text-gruvbox-yellow focus:outline-gruvbox-yellow;
 }
