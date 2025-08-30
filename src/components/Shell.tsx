@@ -107,7 +107,7 @@ function InputLine(props: InputLineProps) {
 
 function HintOnMobile() {
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="flex grow items-center justify-center">
       <span className="text-gruvbox-teal">
         <b>
           <i>Tap here to type</i>
@@ -222,7 +222,7 @@ export default function Shell() {
   return (
     <section
       ref={containerRef}
-      className={`overflow-y-auto ${
+      className={`flex flex-col overflow-y-auto ${
         isMobile && isHintOnMobileVisible
           ? "bg-white/10 border-4 border-gruvbox-teal"
           : ""
