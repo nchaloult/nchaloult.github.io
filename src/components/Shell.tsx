@@ -13,9 +13,49 @@ type InputLineProps = {
 function InputLine(props: InputLineProps) {
   const [curInput, setCurInput] = useState("");
 
+  // Behaves like a stack.
+  //
+  // A corresponding ref exists for this piece of state because event listeners
+  // only have access to any state that existed when they were initialized. If
+  // want to see the most up-to-date state inside of a listener, we need to use
+  // a ref.
+  const [cmdHistory, _setCmdHistory] = useState<string[]>([]);
+  const cmdHistoryRef = useRef(cmdHistory);
+  function setCmdHistory(newHistory: string[]) {
+    cmdHistoryRef.current = newHistory;
+    _setCmdHistory(newHistory);
+  }
+
+  // A corresponding ref exists for this piece of state because event listeners
+  // only have access to any state that existed when they were initialized. If
+  // want to see the most up-to-date state inside of a listener, we need to use
+  // a ref.
+  const [curHistoryIdx, _setCurHistoryIdx] = useState(0);
+  const curHistoryIdxRef = useRef(curHistoryIdx);
+  function setCurHistoryIdx(newIdx: number) {
+    curHistoryIdxRef.current = newIdx;
+    _setCurHistoryIdx(newIdx);
+  }
+
   function checkForKeyboardShortcuts(e: KeyboardEvent) {
+    // Shadowing state variables to their ref counterparts.
+    const cmdHistory = cmdHistoryRef.current;
+    const curHistoryIdx = curHistoryIdxRef.current;
+
     if (e.ctrlKey && e.key === "u") {
       setCurInput("");
+    } else if (e.key === "ArrowUp") {
+      if (cmdHistory.length > 0 && curHistoryIdx > 0) {
+        const newIdx = curHistoryIdx - 1;
+        setCurInput(cmdHistory[newIdx]);
+        setCurHistoryIdx(newIdx);
+      }
+    } else if (e.key === "ArrowDown") {
+      if (cmdHistory.length > 0 && curHistoryIdx < cmdHistory.length - 1) {
+        const newIdx = curHistoryIdx + 1;
+        setCurInput(cmdHistory[newIdx]);
+        setCurHistoryIdx(newIdx);
+      }
     }
   }
 
@@ -27,8 +67,14 @@ function InputLine(props: InputLineProps) {
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    props.handleCommand(curInput);
+
+    const cmd = curInput;
+    const cmdHistoryLength = cmdHistory.length;
     setCurInput("");
+
+    props.handleCommand(cmd);
+    setCmdHistory([...cmdHistory, cmd]);
+    setCurHistoryIdx(cmdHistoryLength + 1);
   }
 
   return (
