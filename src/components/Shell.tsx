@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type JSX } from "react";
 import { flushSync } from "react-dom";
 import { getRandomKey } from "../utils";
 import { parseCommand } from "../commands";
+import { isMobile } from "react-device-detect";
 
 function Prompt() {
   return <b className="text-gruvbox-green">guest@nchaloult.com:~$</b>;
@@ -92,6 +93,8 @@ function InputLine(props: InputLineProps) {
             autoComplete="off"
             spellCheck="false"
             className="w-full outline-none text-transparent"
+            // Used by logic to focus this when the Shell component is clicked.
+            id="input-line-text-field"
           />
           <span className="pointer-events-none absolute inset-0 whitespace-pre">
             {curInput}█
@@ -102,8 +105,21 @@ function InputLine(props: InputLineProps) {
   );
 }
 
+function HintOnMobile() {
+  return (
+    <div className="w-full h-full flex items-center justify-center">
+      <span className="text-gruvbox-teal">
+        <b>
+          <i>Tap here to type</i>
+        </b>
+      </span>
+    </div>
+  );
+}
+
 export default function Shell() {
   const containerRef = useRef<HTMLElement>(null);
+  const [isHintOnMobileVisible, setIsHintOnMobileVisible] = useState(true);
   const [stdout, setStdout] = useState<JSX.Element[]>([
     <span key={getRandomKey()}>
       Type <b className="text-gruvbox-teal">help</b>, then press Enter, for
@@ -117,10 +133,50 @@ export default function Shell() {
     }
   }
 
+  // If a click happened while the mouse was inside the Shell component's
+  // container div, then redirect focus onto the Prompt component's input text
+  // field.
+  function checkForShellClick(e: any) {
+    if (
+      containerRef.current &&
+      e.target &&
+      containerRef.current.contains(e.target)
+    ) {
+      document.getElementById("input-line-text-field")?.focus();
+
+      // On mobile, the first time the Shell component is touched, the hint on
+      // mobile should disappear. It should never reappear, so there is no path
+      // for this variable to be set back to true.
+      setIsHintOnMobileVisible(false);
+
+      document.removeEventListener("click", checkForShellClick);
+    }
+  }
+
+  function removeHintOnMobileIfVisible() {
+    if (isHintOnMobileVisible) {
+      setIsHintOnMobileVisible(false);
+      document.removeEventListener("keypress", removeHintOnMobileIfVisible);
+    }
+  }
+
   useEffect(() => {
     document.addEventListener("keydown", checkForKeyboardShortcuts);
-    return () =>
+    document.addEventListener("click", checkForShellClick);
+    // Each time a keypress happens, hide the hint on mobile (if it's visible).
+    //
+    // This is necessary because some mobile devices can have keyboards attached
+    // (think: iPads). In that case, the HintOnMobile will be visible, but the
+    // InputLine will be focused. The user could be typing away, entering
+    // commands, and the HintOnMobile would still be visible in the middle of
+    // the screen.
+    document.addEventListener("keypress", removeHintOnMobileIfVisible);
+
+    return () => {
       document.removeEventListener("keydown", checkForKeyboardShortcuts);
+      document.removeEventListener("click", checkForShellClick);
+      document.removeEventListener("keypress", removeHintOnMobileIfVisible);
+    };
   }, []);
 
   // Helper function that wraps setStdout(). Auto-scrolls so that the newest
@@ -164,9 +220,17 @@ export default function Shell() {
   }
 
   return (
-    <section ref={containerRef} className="overflow-y-auto">
+    <section
+      ref={containerRef}
+      className={`overflow-y-auto ${
+        isMobile && isHintOnMobileVisible
+          ? "bg-white/10 border-4 border-gruvbox-teal"
+          : ""
+      }`}
+    >
       {stdout}
       <InputLine handleCommand={handleCommand} />
+      {isMobile && isHintOnMobileVisible ? <HintOnMobile /> : null}
     </section>
   );
 }
