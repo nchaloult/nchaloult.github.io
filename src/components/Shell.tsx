@@ -149,7 +149,9 @@ export default function Shell() {
       // for this variable to be set back to true.
       setIsHintOnMobileVisible(false);
 
-      document.removeEventListener("click", checkForShellClick);
+      // Unlike other event handlers in this file, don't remove the listener
+      // after its first invocation. We want to keep listening for Shell
+      // components clicks/taps as long as a user is on the site.
     }
   }
 
