@@ -165,6 +165,8 @@ export default function Shell() {
   useEffect(() => {
     document.addEventListener("keydown", checkForKeyboardShortcuts);
     document.addEventListener("click", checkForShellClick);
+    // "touchstart" is the same as "click" on mobile devices.
+    document.addEventListener("touchstart", checkForShellClick);
     // Each time a keypress happens, hide the hint on mobile (if it's visible).
     //
     // This is necessary because some mobile devices can have keyboards attached
@@ -177,6 +179,7 @@ export default function Shell() {
     return () => {
       document.removeEventListener("keydown", checkForKeyboardShortcuts);
       document.removeEventListener("click", checkForShellClick);
+      document.removeEventListener("touchstart", checkForShellClick);
       document.removeEventListener("keypress", removeHintOnMobileIfVisible);
     };
   }, []);
