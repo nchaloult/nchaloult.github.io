@@ -79,7 +79,7 @@ function InputLine(props: InputLineProps) {
   }
 
   return (
-    <div className="flex space-x-2">
+    <div className="flex gap-2">
       <Prompt />
       <form onSubmit={onSubmit} className="grow overflow-x-auto">
         <div className="relative">
@@ -202,7 +202,7 @@ export default function Shell() {
 
   function handleCommand(cmd: string): void {
     const cmdWithPrompt = (
-      <div key={getRandomKey()} className="flex space-x-2">
+      <div key={getRandomKey()} className="flex gap-2">
         <Prompt />
         <span>{cmd}</span>
       </div>
