@@ -208,4 +208,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: 'Backups are merely an implementation detail of a restore.',
+    author: 'Seth Markle',
+    source: {
+      text: 'https://youtu.be/sYDJYqvNeXU?si=9lLCmDBrFteSTNau',
+      isAURL: true,
+    },
+  },
 ];
