@@ -216,4 +216,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: 'Cut fluff ruthlessly. People are going to read 10% of whatever you... write. Have it be the 10% you chose, rather than the 10% they randomly [stumble] upon.',
+    author: 'Dwarkesh Patel',
+    source: {
+      text: 'https://x.com/dwarkesh_sp/status/1968012981016608934',
+      isAURL: true,
+    },
+  },
 ];
