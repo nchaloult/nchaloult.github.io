@@ -41,10 +41,6 @@ export const quotes: Quote[] = [
   {
     text: 'Do you want me to take your unstructured monolith and break it down into an unstructured set of microservices?',
   },
-  {
-    text: 'The most violent element in society is ignorance.',
-    author: 'Emma Goldman',
-  },
   // {
   //   text: 'There are two hard things in Computer Science: cache invalidation and naming things.',
   //   author: 'Phil Karlton',
