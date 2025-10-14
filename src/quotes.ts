@@ -220,4 +220,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "In tech, 'doesn't scale' is a death sentence. In life, it's the highest praise. Unscalable things resist corruption by external rewards. They remain yours. Pure. Authentic.",
+    author: 'Yew Jin Lim',
+    source: {
+      text: 'https://yewjin.substack.com/p/note-to-my-present-self',
+      isAURL: true,
+    },
+  },
 ];
