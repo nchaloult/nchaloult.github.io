@@ -228,4 +228,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "If you’re truly ambitious you should want to have it all: lifestyle, family, work, health, hobbies. It’s not a pick one or two out of five. Pick all five.",
+    author: 'Daniel Vassallo',
+    source: {
+      text: 'https://x.com/dvassallo/status/1864957483204362257',
+      isAURL: true,
+    },
+  },
 ];
