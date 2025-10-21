@@ -121,7 +121,7 @@ export const quotes: Quote[] = [
     },
   },
   {
-    text: 'Imagine engineering a system to be as reliable as possible and then having your success be taken as evidence that you are useless',
+    text: 'Imagine engineering a system to be as reliable as possible and then having your success be taken as evidence that you are useless.',
     author: 'Vaibhav Sagar',
     source: {
       text: 'https://twitter.com/vbhvsgr/status/1594088007585259520',
