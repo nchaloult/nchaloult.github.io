@@ -114,7 +114,7 @@ export const quotes: Quote[] = [
   // },
   {
     text: "One of the most irritating things programmers do regularly is feel so good about learning a hard thing that they don't look for ways to to make it easy, or even oppose things that would do so.",
-    author: 'Peter Bhat Harkins (@pushcx)',
+    author: 'Peter Bhat Harkins',
     source: {
       text: 'https://twitter.com/pushcx/status/1566843542990880768',
       isAURL: true,
@@ -122,7 +122,7 @@ export const quotes: Quote[] = [
   },
   {
     text: 'Imagine engineering a system to be as reliable as possible and then having your success be taken as evidence that you are useless',
-    author: 'Vaibhav Sagar (@vbhvsgr)',
+    author: 'Vaibhav Sagar',
     source: {
       text: 'https://twitter.com/vbhvsgr/status/1594088007585259520',
       isAURL: true,
@@ -138,7 +138,7 @@ export const quotes: Quote[] = [
   },
   // {
   //   text: 'Water is wet, taxes are inevitable, and undoubtedly someone will use a hammer to pound in a screw.',
-  //   author: 'Timothy St. Clair (@timothysc)',
+  //   author: 'Timothy St. Clair',
   //   source: {
   //     text: 'https://twitter.com/timothysc/status/1671620783406305286?s=20',
   //     isAURL: true,
@@ -198,7 +198,7 @@ export const quotes: Quote[] = [
   },
   {
     text: '...If you made something 2x faster, you might have done something smart. If you made something 100x faster, you definitely just stopped doing something stupid.',
-    author: 'Fabian Giesen (@rygorous)',
+    author: 'Fabian Giesen',
     source: {
       text: 'https://x.com/rygorous/status/1271296834439282690',
       isAURL: true,
