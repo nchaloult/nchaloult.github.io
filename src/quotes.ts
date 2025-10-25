@@ -236,4 +236,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "You're never going to build the perfect system, so you're better off building something quickly that will break in very predictable ways.",
+    author: 'Karim Atiyeh (h/t Patrick O'Shaughnessy)',
+    source: {
+      text: 'https://joincolossus.com/episode/building-ramp/',
+      isAURL: true,
+    },
+  },
 ];
