@@ -238,9 +238,17 @@ export const quotes: Quote[] = [
   },
   {
     text: "You're never going to build the perfect system, so you're better off building something quickly that will break in very predictable ways.",
-    author: 'Karim Atiyeh (h/t Patrick O'Shaughnessy)',
+    author: "Karim Atiyeh (h/t Patrick O'Shaughnessy)",
     source: {
       text: 'https://joincolossus.com/episode/building-ramp/',
+      isAURL: true,
+    },
+  },
+  {
+    text: "Under pressure, you don't rise to the occasion — you fall to your training.",
+    author: 'Jeremy Boykins, NFL CB',
+    source: {
+      text: 'https://youtu.be/zCkCk-FKdv4?si=s9kPNbc-x2Luj4sq',
       isAURL: true,
     },
   },
