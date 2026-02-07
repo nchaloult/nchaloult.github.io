@@ -1,0 +1,12 @@
+{
+    "semi": true,
+    "htmlWhitespaceSensitivity": "css",
+    "printWidth": 80,
+    "plugins": [
+        "prettier-plugin-tailwindcss"
+    ],
+    "tailwindFunctions": ["clsx", "cn"],
+    "tailwindStylesheet": "src/styles/global.css",
+    "tabWidth": 2
+}
+

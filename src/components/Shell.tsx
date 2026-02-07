@@ -92,7 +92,7 @@ function InputLine(props: InputLineProps) {
             autoCorrect="off"
             autoComplete="off"
             spellCheck="false"
-            className="w-full outline-none text-transparent"
+            className="w-full text-transparent outline-none"
             // Used by logic to focus this when the Shell component is clicked.
             id="input-line-text-field"
           />

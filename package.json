@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "format": "prettier --write src/",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -21,6 +22,8 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "rollup-plugin-visualizer": "^6.0.3"
   }
 }
