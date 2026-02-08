@@ -196,14 +196,14 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
-  {
-    text: "...If you made something 2x faster, you might have done something smart. If you made something 100x faster, you definitely just stopped doing something stupid.",
-    author: "Fabian Giesen",
-    source: {
-      text: "https://x.com/rygorous/status/1271296834439282690",
-      isAURL: true,
-    },
-  },
+  // {
+  //   text: "...If you made something 2x faster, you might have done something smart. If you made something 100x faster, you definitely just stopped doing something stupid.",
+  //   author: "Fabian Giesen",
+  //   source: {
+  //     text: "https://x.com/rygorous/status/1271296834439282690",
+  //     isAURL: true,
+  //   },
+  // },
   {
     text: "Backups are merely an implementation detail of a restore.",
     author: "Seth Markle",
