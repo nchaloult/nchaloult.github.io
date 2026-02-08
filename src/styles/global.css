@@ -4,22 +4,45 @@
 @import "tailwindcss";
 
 @theme {
-  --font-mono: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --font-mono:
+    "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 
   /* Gruvbox dark */
-  --color-gruvbox-background: #282828;
-  --color-gruvbox-light-background: #35312f;
+  --color-gruvbox-bg: #282828;
+  --color-gruvbox-bg0-s: #32302f;
+  --color-gruvbox-bg1: #3c3836;
+  --color-gruvbox-bg3: #665c54;
   --color-gruvbox-text: #ebdbb2;
   --color-gruvbox-green: #83b871;
   --color-gruvbox-teal: #779b8d;
   --color-gruvbox-yellow: #d18f1e;
   --color-gruvbox-gray: #928374;
+
+  /* Custom shadows (based on the following)
+   * - https://x.com/PixelJanitor/status/1623358514440859649
+   * - https://codepen.io/DerekBriggs/details/QWBPPyr
+   */
+  --shadow-input:
+    0px 1px 0px -1px var(--tw-shadow-color),
+    0px 1px 1px -1px var(--tw-shadow-color),
+    0px 1px 2px -1px var(--tw-shadow-color),
+    0px 2px 4px -2px var(--tw-shadow-color),
+    0px 3px 6px -3px var(--tw-shadow-color);
+  --shadow-highlight:
+    inset 0px 0px 0px 1px var(--tw-shadow-color),
+    inset 0px 1px 0px var(--tw-shadow-color);
 }
 
 body {
-  @apply bg-gruvbox-background text-gruvbox-text selection:bg-gruvbox-green/25 font-mono text-sm/5;
+  /* @apply bg-gruvbox-background text-gruvbox-text selection:bg-gruvbox-green/25 font-mono text-sm/5; */
+  @apply bg-gruvbox-bg text-base/6 text-gruvbox-text selection:bg-gruvbox-green/25;
 }
 
 a {
-  @apply underline text-gruvbox-yellow focus:outline-gruvbox-yellow;
+  @apply text-gruvbox-yellow hover:underline focus:outline-gruvbox-yellow;
+}
+
+.border {
+  background-clip: padding-box;
 }
