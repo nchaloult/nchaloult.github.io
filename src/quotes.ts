@@ -120,14 +120,14 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
-  {
-    text: "Imagine engineering a system to be as reliable as possible and then having your success be taken as evidence that you are useless.",
-    author: "Vaibhav Sagar",
-    source: {
-      text: "https://twitter.com/vbhvsgr/status/1594088007585259520",
-      isAURL: true,
-    },
-  },
+  // {
+  //   text: "Imagine engineering a system to be as reliable as possible and then having your success be taken as evidence that you are useless.",
+  //   author: "Vaibhav Sagar",
+  //   source: {
+  //     text: "https://twitter.com/vbhvsgr/status/1594088007585259520",
+  //     isAURL: true,
+  //   },
+  // },
   // {
   //   text: 'The surest sign that intelligent life exists elsewhere in the universe is that none of it has tried to contact us.',
   //   author: 'Bill Watterson',
