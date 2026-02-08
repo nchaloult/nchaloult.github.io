@@ -152,6 +152,7 @@ export default function QuoteCard() {
                     href={curQuote.source.text}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="break-all"
                   >
                     {curQuote.source.text}
                   </a>
