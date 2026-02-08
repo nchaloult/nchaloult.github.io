@@ -93,27 +93,48 @@ export default function QuoteCard() {
   const curQuote = shuffledQuotes[curQuoteIdx];
 
   return (
-    <aside className="flex h-48 w-full max-w-2xl flex-col gap-2">
-      <header className="flex items-end justify-between border-b border-gruvbox-bg1 pb-2">
-        <h4 className="w-fit text-sm text-gruvbox-gray">
-          Quote #{curQuote.num} of {shuffledQuotes.length}
-        </h4>
-        <button
-          type="button"
-          onClick={() =>
-            setCurQuoteIdx((prev) => (prev + 1) % shuffledQuotes.length)
-          }
-          className="transition:scale relative flex cursor-pointer items-center gap-2 rounded-lg bg-gruvbox-bg0-s px-4 py-2 text-sm shadow-md ring-1 ring-neutral-950/15 duration-75 before:pointer-events-none before:absolute before:inset-0 before:rounded-lg before:shadow-highlight before:shadow-white/5 hover:bg-gruvbox-bg1 active:scale-94"
-        >
-          <span className="sr-only">Reroll</span>
-          <RerollIcon />
-          Reroll
-        </button>
+    <section>
+      <header>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={curQuoteIdx}
+            variants={{
+              initial: {
+                y: 28,
+              },
+              animate: {
+                y: 0,
+              },
+              exit: {
+                y: 28,
+              },
+            }}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{
+              type: "spring",
+              duration: 0.3,
+              bounce: 0,
+            }}
+          >
+            <h4 className="-mb-1.5 ml-2 w-fit rounded-t-lg bg-gruvbox-bg0-s px-4 py-1 pb-2.5 text-sm text-gruvbox-gray ring-1 ring-neutral-950/15">
+              Quote #{curQuote.num} of {shuffledQuotes.length}
+            </h4>
+          </motion.div>
+        </AnimatePresence>
       </header>
 
-      <div className="flex flex-col gap-2">
+      {/* Fixed height so that the "Reroll" button always appears in the same
+          fixed position.
+          
+          "relative" is critical for "z-10" to affect/influence nearby animated
+          elements (in this case, the "quote #N of M" <header>). This is a
+          known (Framer) Motion gotcha.
+      */}
+      <div className="relative z-10 flex h-40 flex-col gap-2 rounded-lg bg-gruvbox-bg1 p-4 shadow-md ring-1 ring-neutral-950/15">
         <SlideTransition transitionKey={curQuoteIdx}>
-          <p className="font-['new-spirit']">"{curQuote.text}"</p>
+          <p>"{curQuote.text}"</p>
         </SlideTransition>
 
         <div className="flex grow gap-4">
@@ -131,6 +152,7 @@ export default function QuoteCard() {
                     href={curQuote.source.text}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="break-all"
                   >
                     {curQuote.source.text}
                   </a>
@@ -139,8 +161,20 @@ export default function QuoteCard() {
                 ))}
             </span>
           </SlideTransition>
+
+          <button
+            type="button"
+            onClick={() =>
+              setCurQuoteIdx((prev) => (prev + 1) % shuffledQuotes.length)
+            }
+            className="transition:scale relative flex w-fit cursor-pointer items-center gap-2 self-end rounded-lg bg-gruvbox-bg px-4 py-2 text-sm shadow-md ring-1 ring-neutral-950/15 duration-75 before:pointer-events-none before:absolute before:inset-0 before:rounded-lg before:shadow-highlight before:shadow-white/5 active:scale-94"
+          >
+            <span className="sr-only">Reroll</span>
+            <RerollIcon />
+            Reroll
+          </button>
         </div>
       </div>
-    </aside>
+    </section>
   );
 }
