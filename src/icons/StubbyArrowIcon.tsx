@@ -1,0 +1,18 @@
+export default function StubbyArrowIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      fill="none"
+      viewBox="4 4 16 16"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="1.5"
+      aria-hidden="true"
+    >
+      <path d="M8.75 12H17.25"></path>
+      <path d="M14.25 8.75L17.25 12L14.25 15.25"></path>
+    </svg>
+  );
+}
