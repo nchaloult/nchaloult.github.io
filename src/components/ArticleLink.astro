@@ -1,0 +1,32 @@
+---
+import StubbyArrowIcon from "../icons/StubbyArrowIcon.tsx";
+
+interface Props {
+  title: string;
+  href: string;
+  date: string;
+}
+
+const { title, href, date } = Astro.props;
+---
+
+<article>
+  <div
+    class="relative isolate -m-4 flex flex-col items-start rounded-lg p-4 hover:bg-gruvbox-bg1 hover:ring-1 hover:ring-neutral-950/15"
+  >
+    <h2 class="w-full text-lg font-medium font-['new-spirit']">
+      <a href={href} class="group w-full hover:no-underline">
+        <span class="absolute inset-0 z-10"></span>
+        <div class="flex w-full items-center justify-between">
+          {title}
+          <span
+            class="inline-flex transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-[3px]"
+          >
+            <StubbyArrowIcon />
+          </span>
+        </div>
+      </a>
+    </h2>
+    <time class="text-sm text-gruvbox-teal">{date}</time>
+  </div>
+</article>

@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import ManPage from "../components/ManPage.astro";
 import QuoteCard from "../components/QuoteCard.tsx";
-import ArticleLink from "../components/ArticleLink.tsx";
+import ArticleLink from "../components/ArticleLink.astro";
 ---
 
 <Layout>
@@ -13,11 +13,16 @@ import ArticleLink from "../components/ArticleLink.tsx";
         <h1 class="text-2xl">Writing</h1>
 
         <ArticleLink
-          client:load
           title="You cannot study your way to greatness with LLMs"
           href="#"
           date="February 8, 2026"
         />
+        <ArticleLink
+          title="Simpler is better / There are no templates"
+          href="#"
+          date="December 12, 2025"
+        />
+        <ArticleLink title="Why I write" href="#" date="October 17, 2025" />
       </div>
       <ManPage />
     </main>
