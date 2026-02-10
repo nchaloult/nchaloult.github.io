@@ -4,6 +4,8 @@
 @import "tailwindcss";
 
 @theme {
+  --font-heading: "new-spirit", serif;
+  --font-prose: "Figtree", sans-serif;
   --font-mono:
     "JetBrains Mono", source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -34,13 +36,15 @@
     inset 0px 1px 0px var(--tw-shadow-color);
 }
 
-body {
-  /* @apply bg-gruvbox-background text-gruvbox-text selection:bg-gruvbox-green/25 font-mono text-sm/5; */
-  @apply bg-gruvbox-bg text-base/6 text-gruvbox-text selection:bg-gruvbox-green/25;
-}
+@layer base {
+  body {
+    /* @apply bg-gruvbox-background text-gruvbox-text selection:bg-gruvbox-green/25 font-mono text-sm/5; */
+    @apply bg-gruvbox-bg font-prose text-base/6 text-gruvbox-text selection:bg-gruvbox-green/25;
+  }
 
-a {
-  @apply text-gruvbox-yellow hover:underline focus:outline-gruvbox-yellow;
+  a {
+    @apply text-gruvbox-yellow hover:underline focus:outline-gruvbox-yellow;
+  }
 }
 
 .border {
