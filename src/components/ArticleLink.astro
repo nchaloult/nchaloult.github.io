@@ -3,19 +3,20 @@ import StubbyArrowIcon from "../icons/StubbyArrowIcon.tsx";
 
 interface Props {
   title: string;
+  subtitle: string;
   href: string;
   date: string;
 }
 
-const { title, href, date } = Astro.props;
+const { title, subtitle, href, date } = Astro.props;
 ---
 
 <article>
   <div
-    class="relative isolate -m-4 flex flex-col items-start rounded-lg p-4 hover:bg-gruvbox-bg1 hover:ring-1 hover:ring-neutral-950/15"
+    class="relative isolate -m-4 flex flex-col gap-2 items-start rounded-lg p-4 hover:bg-gruvbox-bg1 hover:ring-1 hover:ring-neutral-950/15"
   >
     <h2 class="w-full text-lg font-medium font-['new-spirit']">
-      <a href={href} class="group w-full hover:no-underline">
+      <a href={href} class="group w-full">
         <span class="absolute inset-0 z-10"></span>
         <div class="flex w-full items-center justify-between">
           {title}
@@ -27,6 +28,7 @@ const { title, href, date } = Astro.props;
         </div>
       </a>
     </h2>
+    <h3 class="text-sm text-gruvbox-gray">{subtitle}</h3>
     <time class="text-sm text-gruvbox-teal">{date}</time>
   </div>
 </article>
