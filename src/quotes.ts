@@ -252,4 +252,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "People forget that the internet should have annihilated real estate agents in mere months.",
+    author: "Tom Goodwin",
+    source: {
+      text: "https://x.com/tomfgoodwin/status/2022299729443295566",
+      isAURL: true,
+    },
+  },
 ];
