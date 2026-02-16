@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import { Image, getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import HomeLink from "../../components/HomeLink.astro";
 
@@ -17,11 +18,29 @@ const { Content } = await render(post);
 const WORDS_PER_MINUTE = 175;
 const wordCount = post.body?.trim().split(/\s+/).length ?? 0;
 const readTimeMinutes = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
+
+// Resolve the hero image at build time to get its optimized src for preloading.
+const heroImage = post.data.heroImage;
+const resolvedHeroImage = heroImage
+  ? await getImage({ src: heroImage, format: "webp" })
+  : null;
 ---
 
 <Layout>
-  <div class="flex flex-col items-center p-8 gap-8">
-    <article class="w-full max-w-2xl flex flex-col gap-16">
+  {
+    resolvedHeroImage && (
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          type="image/webp"
+          href={resolvedHeroImage.src}
+        />
+      </head>
+    )
+  }
+  <div class="flex justify-center p-8">
+    <article class="w-full max-w-2xl flex flex-col gap-8">
       <header class="flex flex-col gap-2 border-b border-gruvbox-bg1 pb-4">
         <!-- Account for HomeLink's negative padding. -->
         <div class="mb-4">
@@ -46,6 +65,18 @@ const readTimeMinutes = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
         </h1>
         <h2 class="text-base text-gruvbox-gray">{post.data.subtitle}</h2>
       </header>
+      {
+        heroImage && (
+          <Image
+            src={heroImage}
+            alt=""
+            class="w-full h-auto rounded-lg"
+            loading="eager"
+            fetchpriority="high"
+            format="webp"
+          />
+        )
+      }
       <div
         class="prose prose-invert prose-headings:font-heading text-gruvbox-text prose-headings:text-gruvbox-green prose-strong:text-gruvbox-text prose-li:text-gruvbox-text prose-a:text-gruvbox-yellow prose-a:no-underline prose-a:hover:underline [--tw-prose-bullets:var(--color-gruvbox-text)] [--tw-prose-counters:var(--color-gruvbox-text)] [--tw-prose-quote-borders:var(--color-gruvbox-bg1)] [&_blockquote_p]:font-['new-spirit'] [&_blockquote_p]:text-gruvbox-text [&_blockquote_footer_cite]:text-gruvbox-teal [&_blockquote_footer_cite]:not-italic"
       >
