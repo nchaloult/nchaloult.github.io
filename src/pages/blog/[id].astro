@@ -65,18 +65,36 @@ const resolvedHeroImage = heroImage
         </h1>
         <h2 class="text-base text-gruvbox-gray">{post.data.subtitle}</h2>
       </header>
-      {
-        heroImage && (
-          <Image
-            src={heroImage}
-            alt=""
-            class="w-full h-auto rounded-lg"
-            loading="eager"
-            fetchpriority="high"
-            format="webp"
-          />
-        )
-      }
+      <div class="flex flex-col gap-2">
+        {
+          heroImage && (
+            <Image
+              src={heroImage}
+              alt={post.data.heroCaption ?? ""}
+              class="w-full h-auto rounded-lg"
+              loading="eager"
+              fetchpriority="high"
+              format="webp"
+            />
+          )
+        }
+        {
+          post.data.heroCaption && (
+            <figcaption class="flex flex-col gap-2 text-sm text-gruvbox-gray">
+              {post.data.heroCaption}
+              {post.data.heroSourceURL && (
+                <a
+                  href={post.data.heroSourceURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {post.data.heroSourceURL}
+                </a>
+              )}
+            </figcaption>
+          )
+        }
+      </div>
       <div
         class="prose prose-invert prose-headings:font-heading text-gruvbox-text prose-headings:text-gruvbox-green prose-strong:text-gruvbox-text prose-li:text-gruvbox-text prose-a:text-gruvbox-yellow prose-a:no-underline prose-a:hover:underline [--tw-prose-bullets:var(--color-gruvbox-text)] [--tw-prose-counters:var(--color-gruvbox-text)] [--tw-prose-quote-borders:var(--color-gruvbox-bg1)] prose-blockquote:not-italic [&_blockquote_p]:font-['new-spirit'] [&_blockquote_p]:text-gruvbox-text [&_blockquote_footer_cite]:text-gruvbox-teal [&_blockquote_footer_cite]:not-italic"
       >
