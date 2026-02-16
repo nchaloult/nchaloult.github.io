@@ -1,6 +1,7 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import { visualizer } from "rollup-plugin-visualizer";
+import rehypeExternalLinks from "rehype-external-links";
 
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
@@ -11,6 +12,15 @@ export default defineConfig({
   trailingSlash: "never",
   integrations: [react()],
 
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        { target: "_blank", rel: ["noopener", "noreferrer"] },
+      ],
+    ],
+  },
+
   vite: {
     plugins: [
       tailwindcss(),
@@ -18,6 +28,6 @@ export default defineConfig({
         emitFile: true,
         filename: "stats.html",
       }),
-    ]
-  }
+    ],
+  },
 });
