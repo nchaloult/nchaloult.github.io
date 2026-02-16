@@ -40,66 +40,72 @@ const resolvedHeroImage = heroImage
     )
   }
   <div class="flex justify-center p-8">
-    <article class="w-full max-w-2xl flex flex-col gap-8">
-      <header class="flex flex-col gap-2 border-b border-gruvbox-bg1 pb-4">
-        <!-- Account for HomeLink's negative padding. -->
-        <div class="mb-4">
-          <HomeLink />
+    <div class="w-full max-w-2xl flex flex-col gap-8">
+      <nav>
+        <HomeLink />
+      </nav>
+
+      <article class="w-full max-w-2xl flex flex-col gap-8">
+        <header class="flex flex-col gap-2 border-b border-gruvbox-bg1 pb-4">
+          <div class="flex gap-4 text-sm text-gruvbox-teal">
+            <time>
+              {
+                post.data.publishDate.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  timeZone: "UTC",
+                })
+              }
+            </time>
+            <span aria-hidden="true">·</span>
+            <small class="text-sm">{readTimeMinutes} min read</small>
+          </div>
+          <h1 class="text-3xl font-bold font-['new-spirit']">
+            {post.data.title}
+          </h1>
+          <h2 class="text-base text-gruvbox-gray">{post.data.subtitle}</h2>
+        </header>
+        <div class="flex flex-col gap-2">
+          {
+            heroImage && (
+              <Image
+                src={heroImage}
+                alt={post.data.heroCaption ?? ""}
+                class="w-full h-auto rounded-lg"
+                loading="eager"
+                fetchpriority="high"
+                format="webp"
+              />
+            )
+          }
+          {
+            post.data.heroCaption && (
+              <figcaption class="flex flex-col gap-2 text-sm text-gruvbox-gray">
+                {post.data.heroCaption}
+                {post.data.heroSourceURL && (
+                  <a
+                    href={post.data.heroSourceURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {post.data.heroSourceURL}
+                  </a>
+                )}
+              </figcaption>
+            )
+          }
         </div>
-        <div class="flex gap-4 text-sm text-gruvbox-teal">
-          <time>
-            {
-              post.data.publishDate.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                timeZone: "UTC",
-              })
-            }
-          </time>
-          <span aria-hidden="true">·</span>
-          <small class="text-sm">{readTimeMinutes} min read</small>
+        <div
+          class="prose prose-invert prose-headings:font-heading text-gruvbox-text prose-headings:text-gruvbox-green prose-strong:text-gruvbox-text prose-li:text-gruvbox-text prose-a:text-gruvbox-yellow prose-a:no-underline prose-a:hover:underline [--tw-prose-bullets:var(--color-gruvbox-text)] [--tw-prose-counters:var(--color-gruvbox-text)] [--tw-prose-quote-borders:var(--color-gruvbox-bg1)] prose-blockquote:not-italic [&_blockquote_p]:font-['new-spirit'] [&_blockquote_p]:text-gruvbox-text [&_blockquote_footer_cite]:text-gruvbox-teal [&_blockquote_footer_cite]:not-italic"
+        >
+          <Content />
         </div>
-        <h1 class="text-3xl font-bold font-['new-spirit']">
-          {post.data.title}
-        </h1>
-        <h2 class="text-base text-gruvbox-gray">{post.data.subtitle}</h2>
-      </header>
-      <div class="flex flex-col gap-2">
-        {
-          heroImage && (
-            <Image
-              src={heroImage}
-              alt={post.data.heroCaption ?? ""}
-              class="w-full h-auto rounded-lg"
-              loading="eager"
-              fetchpriority="high"
-              format="webp"
-            />
-          )
-        }
-        {
-          post.data.heroCaption && (
-            <figcaption class="flex flex-col gap-2 text-sm text-gruvbox-gray">
-              {post.data.heroCaption}
-              {post.data.heroSourceURL && (
-                <a
-                  href={post.data.heroSourceURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {post.data.heroSourceURL}
-                </a>
-              )}
-            </figcaption>
-          )
-        }
-      </div>
-      <div
-        class="prose prose-invert prose-headings:font-heading text-gruvbox-text prose-headings:text-gruvbox-green prose-strong:text-gruvbox-text prose-li:text-gruvbox-text prose-a:text-gruvbox-yellow prose-a:no-underline prose-a:hover:underline [--tw-prose-bullets:var(--color-gruvbox-text)] [--tw-prose-counters:var(--color-gruvbox-text)] [--tw-prose-quote-borders:var(--color-gruvbox-bg1)] prose-blockquote:not-italic [&_blockquote_p]:font-['new-spirit'] [&_blockquote_p]:text-gruvbox-text [&_blockquote_footer_cite]:text-gruvbox-teal [&_blockquote_footer_cite]:not-italic"
-      >
-        <Content />
-      </div>
-    </article>
+      </article>
+
+      <nav>
+        <HomeLink />
+      </nav>
+    </div>
   </div>
 </Layout>
