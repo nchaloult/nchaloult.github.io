@@ -3,6 +3,38 @@ import RerollIcon from "../icons/RerollIcon.tsx";
 import { type NumberedQuote } from "../quotes.ts";
 import { AnimatePresence, motion } from "motion/react";
 
+// Renders a URL with <wbr> (word break opportunity) elements inserted at
+// natural break points.
+//
+// Combined with `overflow-wrap: anywhere` on the containing element, any
+// remaining segments that are too long can still break at any character as a
+// last resort.
+function BreakableUrl({ url }: { url: string }) {
+  const breakBefore = new Set(["/", ".", "-", "_", "?", "#", "&", "="]);
+  const result: ReactNode[] = [];
+  let segment = "";
+
+  // Skip past the protocol (e.g. "https://") so we don't break there.
+  const protocolEnd = url.indexOf("://");
+  const startIdx = protocolEnd !== -1 ? protocolEnd + 3 : 0;
+  if (startIdx > 0) segment = url.slice(0, startIdx);
+
+  for (let i = startIdx; i < url.length; i++) {
+    const char = url[i];
+    if (breakBefore.has(char)) {
+      // Flush the current segment, then insert a break opportunity.
+      if (segment) result.push(segment);
+      result.push(<wbr key={i} />);
+      segment = char;
+    } else {
+      segment += char;
+    }
+  }
+  if (segment) result.push(segment);
+
+  return <>{result}</>;
+}
+
 const isTouchDevice =
   // Set this to false during Astro's SSG pass. Only attempt to perform this
   // check once this QuoteCard component is hydrating on the client.
@@ -87,7 +119,7 @@ export default function QuoteCard({ quotes }: { quotes: NumberedQuote[] }) {
             transitionKey={curQuoteIdx}
             className="grow self-start"
           >
-            <span className="flex flex-col text-sm">
+            <span className="flex min-w-0 flex-col text-sm">
               <strong className="font-medium text-gruvbox-teal">
                 {curQuote.author ?? "Unknown"}
               </strong>
@@ -97,8 +129,9 @@ export default function QuoteCard({ quotes }: { quotes: NumberedQuote[] }) {
                     href={curQuote.source.text}
                     target="_blank"
                     rel="noopener noreferrer"
+                    style={{ overflowWrap: "anywhere" }}
                   >
-                    {curQuote.source.text}
+                    <BreakableUrl url={curQuote.source.text} />
                   </a>
                 ) : (
                   <span>{curQuote.source.text}</span>
