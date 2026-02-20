@@ -83,7 +83,7 @@ export default function QuoteCard({ quotes }: { quotes: NumberedQuote[] }) {
   const curQuote = quotes[curQuoteIdx];
 
   return (
-    <aside className="flex h-48 w-full max-w-2xl flex-col gap-2">
+    <aside className="flex h-64 md:h-48 w-full max-w-2xl flex-col gap-2">
       <header className="flex items-end justify-between border-b border-gruvbox-bg1 pb-2">
         <h4 className="w-fit text-sm text-gruvbox-gray">
           Quote #{curQuote.num} of {quotes.length}

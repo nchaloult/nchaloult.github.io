@@ -36,10 +36,9 @@ const shuffledQuotes: NumberedQuote[] = shuffle(
 <Layout>
   <div class="flex flex-col items-center p-8 gap-8">
     <QuoteCard client:load quotes={shuffledQuotes} />
-    <main class="w-full max-w-6xl grid grid-cols-2 gap-16">
+    <main class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-16">
       <div class="flex flex-col gap-8">
         <h1 class="text-3xl">Writing</h1>
-
         {
           posts.map((post) => (
             <ArticleLink
