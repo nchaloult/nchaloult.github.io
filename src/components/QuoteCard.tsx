@@ -1,6 +1,7 @@
 import { useState, type PropsWithChildren, type ReactNode } from "react";
 import RerollIcon from "../icons/RerollIcon.tsx";
 import { type NumberedQuote } from "../quotes.ts";
+import { isTouchDevice } from "../utils.ts";
 import { AnimatePresence, motion } from "motion/react";
 
 // Renders a URL with <wbr> (word break opportunity) elements inserted at
@@ -35,12 +36,7 @@ function BreakableUrl({ url }: { url: string }) {
   return <>{result}</>;
 }
 
-const isTouchDevice =
-  // Set this to false during Astro's SSG pass. Only attempt to perform this
-  // check once this QuoteCard component is hydrating on the client.
-  typeof window !== "undefined" &&
-  // Apparently the standard web API for detecting touch-primary devices.
-  window.matchMedia("(pointer: coarse)").matches;
+
 
 interface SlideTransitionProps {
   transitionKey: any;
