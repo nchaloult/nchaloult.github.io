@@ -17,3 +17,30 @@ export function getRandomKey(): string {
 export const isTouchDevice =
   typeof window !== "undefined" &&
   window.matchMedia("(pointer: coarse)").matches;
+
+// Inserts <wbr> (word break opportunity) tags before natural URL break points
+// like /, ., -, ?, #, &, and =. Skips the protocol (e.g. "https://").
+//
+// Returns an HTML string, so it works in both:
+//   - Astro components (via set:html)
+//   - React components (wrap the logic in a component with JSX)
+const BREAK_BEFORE = new Set(["/", ".", "-", "_", "?", "#", "&", "="]);
+
+export function getBreakableUrl(url: string): string {
+  let result = "";
+
+  // Skip past the protocol (e.g. "https://") so we don't break there.
+  const protocolEnd = url.indexOf("://");
+  const startIdx = protocolEnd !== -1 ? protocolEnd + 3 : 0;
+  if (startIdx > 0) result = url.slice(0, startIdx);
+
+  for (let i = startIdx; i < url.length; i++) {
+    const char = url[i];
+    if (BREAK_BEFORE.has(char)) {
+      result += "<wbr>";
+    }
+    result += char;
+  }
+
+  return result;
+}

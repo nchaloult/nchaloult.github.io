@@ -1,3 +1,7 @@
+---
+import { getBreakableUrl } from "../utils.ts";
+---
+
 <section class="flex flex-col gap-6 font-mono text-sm/5">
   <div class="w-full flex justify-between">
     <span>NICK(1)</span>
@@ -47,24 +51,30 @@
           Systems programming (<a
             href="https://nycsystems.xyz"
             target="_blank"
-            rel="noopener noreferrer">https://nycsystems.xyz</a
-          >)
+            rel="noopener noreferrer"
+            style="overflow-wrap: anywhere"
+            set:html={getBreakableUrl("https://nycsystems.xyz")}
+          />)
         </li>
         <span>•</span>
         <li>
           Distributed systems testing tools (<a
             href="https://jepsen.io/"
             target="_blank"
-            rel="noopener noreferrer">https://jepsen.io/</a
-          >)
+            rel="noopener noreferrer"
+            style="overflow-wrap: anywhere"
+            set:html={getBreakableUrl("https://jepsen.io/")}
+          />)
         </li>
         <span>•</span>
         <li>
           New version control systems (<a
             href="https://jj-vcs.github.io"
             target="_blank"
-            rel="noopener noreferrer">https://jj-vcs.github.io</a
-          >)
+            rel="noopener noreferrer"
+            style="overflow-wrap: anywhere"
+            set:html={getBreakableUrl("https://jj-vcs.github.io")}
+          />)
         </li>
       </ul>
       <p>
@@ -83,8 +93,10 @@
           <a
             href="mailto:npchaloult@gmail.com"
             target="_blank"
-            rel="noopener noreferrer">npchaloult@gmail.com</a
-          >
+            rel="noopener noreferrer"
+            style="overflow-wrap: anywhere"
+            set:html={getBreakableUrl("npchaloult@gmail.com")}
+          />
         </p>
       </div>
       <div>
@@ -93,8 +105,10 @@
           <a
             href="https://github.com/nchaloult"
             target="_blank"
-            rel="noopener noreferrer">https://github.com/nchaloult</a
-          >
+            rel="noopener noreferrer"
+            style="overflow-wrap: anywhere"
+            set:html={getBreakableUrl("https://github.com/nchaloult")}
+          />
         </p>
       </div>
       <div>
@@ -103,16 +117,18 @@
           <a
             href="https://linkedin.com/in/nchaloult"
             target="_blank"
-            rel="noopener noreferrer">https://linkedin.com/in/nchaloult</a
-          >
+            rel="noopener noreferrer"
+            style="overflow-wrap: anywhere"
+            set:html={getBreakableUrl("https://linkedin.com/in/nchaloult")}
+          />
         </p>
       </div>
       <div>
         <b>-r, --resume</b>
         <p class="ml-12">
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
-            >Click to view resume</a
-          >
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            Click to view resume
+          </a>
         </p>
         <p class="ml-12 text-gruvbox-gray">(Last updated in March 2024)</p>
       </div>

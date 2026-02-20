@@ -1,42 +1,8 @@
-import { useState, type PropsWithChildren, type ReactNode } from "react";
+import { useState, type PropsWithChildren } from "react";
 import RerollIcon from "../icons/RerollIcon.tsx";
 import { type NumberedQuote } from "../quotes.ts";
-import { isTouchDevice } from "../utils.ts";
+import { getBreakableUrl, isTouchDevice } from "../utils.ts";
 import { AnimatePresence, motion } from "motion/react";
-
-// Renders a URL with <wbr> (word break opportunity) elements inserted at
-// natural break points.
-//
-// Combined with `overflow-wrap: anywhere` on the containing element, any
-// remaining segments that are too long can still break at any character as a
-// last resort.
-function BreakableUrl({ url }: { url: string }) {
-  const breakBefore = new Set(["/", ".", "-", "_", "?", "#", "&", "="]);
-  const result: ReactNode[] = [];
-  let segment = "";
-
-  // Skip past the protocol (e.g. "https://") so we don't break there.
-  const protocolEnd = url.indexOf("://");
-  const startIdx = protocolEnd !== -1 ? protocolEnd + 3 : 0;
-  if (startIdx > 0) segment = url.slice(0, startIdx);
-
-  for (let i = startIdx; i < url.length; i++) {
-    const char = url[i];
-    if (breakBefore.has(char)) {
-      // Flush the current segment, then insert a break opportunity.
-      if (segment) result.push(segment);
-      result.push(<wbr key={i} />);
-      segment = char;
-    } else {
-      segment += char;
-    }
-  }
-  if (segment) result.push(segment);
-
-  return <>{result}</>;
-}
-
-
 
 interface SlideTransitionProps {
   transitionKey: any;
@@ -83,7 +49,7 @@ export default function QuoteCard({ quotes }: { quotes: NumberedQuote[] }) {
   const curQuote = quotes[curQuoteIdx];
 
   return (
-    <aside className="flex h-64 md:h-48 w-full max-w-2xl flex-col gap-2">
+    <aside className="flex h-64 w-full max-w-2xl flex-col gap-2 md:h-48">
       <header className="flex items-end justify-between border-b border-gruvbox-bg1 pb-2">
         <h4 className="w-fit text-sm text-gruvbox-gray">
           Quote #{curQuote.num} of {quotes.length}
@@ -126,9 +92,10 @@ export default function QuoteCard({ quotes }: { quotes: NumberedQuote[] }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ overflowWrap: "anywhere" }}
-                  >
-                    <BreakableUrl url={curQuote.source.text} />
-                  </a>
+                    dangerouslySetInnerHTML={{
+                      __html: getBreakableUrl(curQuote.source.text),
+                    }}
+                  />
                 ) : (
                   <span>{curQuote.source.text}</span>
                 ))}
