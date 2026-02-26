@@ -112,14 +112,14 @@ export const quotes: Quote[] = [
   //   text: 'If you are neutral in situations of injustice, you have chosen the side of the oppressor.',
   //   author: 'Desmond Tutu',
   // },
-  {
-    text: "One of the most irritating things programmers do regularly is feel so good about learning a hard thing that they don't look for ways to to make it easy, or even oppose things that would do so.",
-    author: "Peter Bhat Harkins",
-    source: {
-      text: "https://twitter.com/pushcx/status/1566843542990880768",
-      isAURL: true,
-    },
-  },
+  // {
+  //   text: "One of the most irritating things programmers do regularly is feel so good about learning a hard thing that they don't look for ways to to make it easy, or even oppose things that would do so.",
+  //   author: "Peter Bhat Harkins",
+  //   source: {
+  //     text: "https://twitter.com/pushcx/status/1566843542990880768",
+  //     isAURL: true,
+  //   },
+  // },
   // {
   //   text: "Imagine engineering a system to be as reliable as possible and then having your success be taken as evidence that you are useless.",
   //   author: "Vaibhav Sagar",
