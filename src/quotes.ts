@@ -260,4 +260,12 @@ export const quotes: Quote[] = [
       isAURL: true,
     },
   },
+  {
+    text: "Typically when there's a large gap between napkin math and reality, it means there's either a big opportunity for optimization or a bug in our understanding.",
+    author: 'Xavier Denis (engineer at turbopuffer)',
+    source: {
+      text: 'https://turbopuffer.com/blog/zero-cost',
+      isAURL: true,
+    },
+  },
 ];
