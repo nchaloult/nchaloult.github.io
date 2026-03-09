@@ -9,9 +9,9 @@ export default function StubbyArrowIcon(props: Props) {
       fill="none"
       viewBox="4 4 16 16"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
       aria-hidden="true"
       style={props.isPointingLeft ? { transform: "rotate(180deg)" } : undefined}
     >

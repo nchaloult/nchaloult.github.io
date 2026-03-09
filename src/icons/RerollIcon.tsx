@@ -6,9 +6,9 @@ export default function RerollIcon() {
       fill="none"
       viewBox="4 4 16 16"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
       aria-hidden="true"
     >
       <path d="M11.25 4.75L8.75 7L11.25 9.25"></path>
