@@ -29,5 +29,9 @@
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "rollup-plugin-visualizer": "^6.0.3"
+  },
+  "overridesComment": "Pin vite to v7 because Astro 6 expects Vite 7, preventing @tailwindcss/vite from hoisting Vite 8 (Rolldown) which breaks the build",
+  "overrides": {
+    "vite": "^7.3.2"
   }
 }
