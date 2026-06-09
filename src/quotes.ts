@@ -276,4 +276,12 @@ export const quotes: Quote[] = [
       isAURL: false,
     },
   },
+  {
+    text: "It is a luxury to be able to afford to go slow.",
+    author: 'Kelsey Hightower',
+    source: {
+      text: "https://youtu.be/UlXpOGIpITM?si=t6jut1Ju6tQstUtM&t=7489",
+      isAURL: true,
+    },
+  },
 ];
